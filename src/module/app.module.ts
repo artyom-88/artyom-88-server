@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from '../controller/app.controller';
+import { AppService } from '../service/app.service';
+import { CareerModule } from './career.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AppService } from './app.service';
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
+    CareerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
