@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run server:test"
   }
 }
