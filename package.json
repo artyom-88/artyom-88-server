@@ -8,6 +8,8 @@
     "client:ci": "cd ./client && npm ci",
     "client:install": "cd ./client && npm install",
     "client:build": "cd ./client && npm run build",
+    "install": "npm run client:install && npm run server:install",
+    "ci": "npm run client:ci && npm run server:ci",
     "server:ci": "cd ./server && npm ci",
     "server:install": "cd ./server && npm install",
     "server:build": "cd ./server && npm run build",
