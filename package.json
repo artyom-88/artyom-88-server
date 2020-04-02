@@ -3,5 +3,15 @@
   "version": "1.0.0",
   "engines": {
     "node": "12.x"
+  },
+  "scripts": {
+    "client:build": "cd ./client && npm build",
+    "client:install": "cd ./client && npm install",
+    "install": "npm run client:instal && npm run server:install",
+    "server:install": "cd ./server && npm install",
+    "server:build": "cd ./server && npm run build",
+    "server:prod": "cd ./server && npm run start:prod",
+    "server:start": "cd ./server && npm run start",
+    "server:test": "cd ./server && npm run test"
   }
 }
