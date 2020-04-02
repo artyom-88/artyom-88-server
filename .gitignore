@@ -1,7 +1,8 @@
 .idea/
-dist/
+client/build/
+server/dist/
 node_modules/
-.env
+server/.env
 
 *~
 *.sw[mnpcod]
