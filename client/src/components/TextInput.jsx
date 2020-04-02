@@ -5,7 +5,7 @@ import styles from './Input.module.css';
 const TextInput = ({field, label, onChange, required, type, value}) => {
   const inputHandler = useCallback((e) => {
     onChange(field, e.target.value);
-  }, [onChange]);
+  }, [field, onChange]);
   return (
     <div className={styles.container}>
       <label>
