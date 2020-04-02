@@ -12,11 +12,12 @@ export const CareerModel = new mongoose.Schema({
 });
 
 export interface Career extends mongoose.Document {
-  id: string;
-  title: string;
-  year: number;
-  month: number;
-  day: number;
-  link: string;
-  linkCaption: string;
+  readonly id: string;
+  readonly title: string;
+  readonly site: string;
+  readonly post: string;
+  readonly description: string;
+  readonly tools: string;
+  readonly startDate: Date;
+  readonly endDate: Date;
 }
