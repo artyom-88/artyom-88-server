@@ -9,7 +9,7 @@ export class CareerService {
   }
 
   async create(dto: CreateCareerDto): Promise<Career> {
-    console.log('api/career');
+    console.log('api/career create() dto:');
     console.log(JSON.stringify(dto, null, 1));
     const record = new this.careerModel(dto);
     return record.save();
@@ -17,12 +17,13 @@ export class CareerService {
 
   async getAll() {
     const records = await this.careerModel.find({}).exec();
-    console.log('api/career getAll');
+    console.log('api/career getAll()');
     console.log(JSON.stringify(records, null, 1));
     return records;
   }
 
   async getById(id: string) {
+    console.log(`api/career getById(${id})`);
     let record;
     try {
       record = await this.careerModel.findById(id).exec();
