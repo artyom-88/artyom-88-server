@@ -6,7 +6,7 @@ function* appAuth(action) {
   try {
     yield put(appAuthRequest());
     const response = yield call(() => {
-      return axios.get('/api/auth', action.payload);
+      return axios.post('/api/auth', action.payload);
     });
     debugger;
     if (response.status === 200) {
