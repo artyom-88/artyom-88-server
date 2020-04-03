@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { CLIENT_BUILD_PATH, ENV_FILE_PATH } from '../const';
+import { AuthModule } from './auth.module';
 import { CareerModule } from './career.module';
 
 @Module({
@@ -12,6 +13,7 @@ import { CareerModule } from './career.module';
     ServeStaticModule.forRoot({
       rootPath: CLIENT_BUILD_PATH,
     }),
+    AuthModule,
     CareerModule
   ],
   controllers: [],

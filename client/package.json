@@ -4,20 +4,44 @@
   "private": true,
   "dependencies": {
     "axios": "0.19.2",
-    "lodash": "4.17.15",
     "prop-types": "15.7.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-redux": "7.2.0",
+    "react-router": "5.1.2",
+    "react-router-dom": "5.1.2",
+    "redux": "4.0.5",
+    "redux-devtools-extension": "2.13.8",
+    "redux-saga": "1.1.3",
+    "reselect": "4.0.0"
   },
   "devDependencies": {
+    "@types/react": "16.9.32",
+    "@types/react-dom": "16.9.6",
+    "@types/react-router-dom": "5.1.3",
+    "husky": "4.2.3",
+    "lint-staged": "10.1.1",
+    "node-sass": "4.13.1",
+    "prettier": "2.0.2",
     "react-scripts": "3.4.0",
-    "rimraf": "3.0.2"
+    "rimraf": "3.0.2",
+    "sass": "1.26.3"
   },
   "scripts": {
     "prebuild": "rimraf build",
     "postinstall": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write"
+    ]
   },
   "browserslist": {
     "production": [
