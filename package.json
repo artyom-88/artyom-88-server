@@ -1,12 +1,23 @@
 {
+  "author": "Artyom Ganev",
+  "license": "GPL-3.0",
   "name": "artyom-ganev-node",
   "version": "1.0.0",
+  "homepage": "http://artyom-ganev.github.io",
+  "bugs": {
+    "url": "https://github.com/Artyom-Ganev/artyom-ganev-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artyom-Ganev/artyom-ganev-node.git"
+  },
   "engines": {
     "node": "12.x"
   },
   "scripts": {
     "client:build": "cd ./client && npm build",
     "client:install": "cd ./client && npm install",
+    "client:start": "cd ./client && npm run start",
     "install": "npm run client:install && npm run server:install",
     "server:install": "cd ./server && npm install",
     "server:build": "cd ./server && npm run build",
