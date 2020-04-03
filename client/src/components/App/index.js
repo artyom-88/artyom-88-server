@@ -1,17 +1,20 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import {shallowEqual, useSelector} from 'react-redux';
 import {useHistory, useLocation} from 'react-router';
-import {Switch} from 'react-router-dom';
-import {AuthContext} from '../../context';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import {appSelector} from '../../selectors';
+import Career from '../Career';
 import Login from '../Login';
-import Routes from '../Routes';
+import Main from '../Main';
+import Menu from '../Menu';
+import NotFound from '../NotFound';
 
 const LOGIN_PATH = '/login';
 
 const App = () => {
-  const [authorized, setAuth] = useState(false);
+  const {authorized} = useSelector(appSelector, shallowEqual);
   const history = useHistory();
   const location = useLocation();
-  const authHandler = useCallback(changed => setAuth(changed), [setAuth]);
 
   useEffect(() => {
     if (!authorized && location.pathname !== LOGIN_PATH) {
@@ -21,16 +24,26 @@ const App = () => {
 
   return (
     <div className='container-xl flexBox flexColumn flexGrow-1'>
-      <AuthContext.Provider value={authorized}>
-        {authorized
-          ? <Routes/>
-          : (
-            <Switch>
-              <Login authHandler={authHandler}/>
-            </Switch>
-          )
-        }
-      </AuthContext.Provider>
+      {authorized
+        ? (
+          <div className='flexBox flexColumn'>
+            <Menu/>
+            <div className='flexBox flexColumn flexGrow-1'>
+              <Switch>
+                <Redirect from='/main' to='/'/>
+                <Route exact={true} path='/' component={Main}/>
+                <Route exact={true} path='/career' component={Career}/>
+                <Route exact={true} path='/login' component={Login}/>
+                <Route component={NotFound}/>
+              </Switch>
+            </div>
+          </div>
+        ) : (
+          <Switch>
+            <Login/>
+          </Switch>
+        )
+      }
     </div>
   );
 };

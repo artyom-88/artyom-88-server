@@ -1,5 +1,7 @@
-import PropTypes from 'prop-types';
 import React, {useCallback} from 'react';
+import {shallowEqual, useDispatch, useSelector} from 'react-redux';
+import {appAuth} from '../../actions';
+import {appSelector} from '../../selectors';
 import Form from '../Form';
 import Page from '../Page';
 
@@ -15,26 +17,30 @@ const inputs = [{
   type: 'password',
 }];
 
-const Login = ({authHandler}) => {
-  const onSubmit = useCallback(() => {
-    // TODO:
-  }, [authHandler]);
+const Login = () => {
+  const {authorized} = useSelector(appSelector, shallowEqual);
+  const dispatch = useDispatch();
+
+  const authChangeHandler = useCallback(() => {
+    dispatch(appAuth(!authorized));
+  }, [authorized, dispatch]);
 
   return (
     <Page
       className='flexBox flexColumn justifyContentCenter alignItemsCenter flexGrow-1'
-      title='Login'
+      title='Login Page'
     >
-      <Form
-        inputs={inputs}
-        onSubmit={onSubmit}
-      />
+      {authorized
+        ? <button onClick={authChangeHandler}>Log out</button>
+        : (
+          <Form
+            inputs={inputs}
+            onSubmit={authChangeHandler}
+          />
+        )
+      }
     </Page>
   );
-};
-
-Login.propTypes = {
-  authHandler: PropTypes.func.isRequired
 };
 
 export default Login;

@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 const renderItems = () =>
   PAGES.map(
     ({id, name, url}) => (
-      <NavLink exact={!url} className={styles.item} activeClassName={styles.active} to={`/${url}`} key={id}>
+      <NavLink exact={!url} className={`nav-item ${styles.item}`} activeClassName={styles.active} to={`/${url}`} key={id}>
         {name}
       </NavLink>
     )
@@ -20,7 +20,7 @@ const renderItems = () =>
  * Navigation menu component
  */
 const Menu = () => (
-  <nav className={`flexBox ${styles.container}`} id='menu'>
+  <nav className={`nav flexBox ${styles.container}`} id='menu'>
     {renderItems()}
   </nav>
 );
