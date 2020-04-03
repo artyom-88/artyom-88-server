@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+import { CLIENT_BUILD_PATH, ENV_FILE_PATH } from '../const';
 import { CareerModule } from './career.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env'
+      envFilePath: ENV_FILE_PATH
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../../client/build'),
+      rootPath: CLIENT_BUILD_PATH,
     }),
     CareerModule
   ],

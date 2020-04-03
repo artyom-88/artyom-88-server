@@ -12,6 +12,7 @@
     "server:build": "cd ./server && npm run build",
     "server:prod": "cd ./server && npm run start:prod",
     "server:start": "cd ./server && npm run start",
+    "server:start:dev": "cd ./server && npm run start:dev",
     "server:test": "cd ./server && npm run test",
     "test": "npm run server:test"
   }
