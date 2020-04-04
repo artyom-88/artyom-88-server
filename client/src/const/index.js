@@ -6,3 +6,7 @@ export const MAIN = { id: 'main', name: 'Main', url: '' };
  * Pages settings
  */
 export const PAGES = [MAIN, CAREER, LOGIN];
+
+export const MSG = {
+  AUTH_FAILED: 'Authorization failed',
+};
