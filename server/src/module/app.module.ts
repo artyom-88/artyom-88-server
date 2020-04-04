@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { CLIENT_BUILD_PATH, ENV_FILE_PATH } from '../const';
+import { AppController } from '../controller/app.controller';
 import { AuthModule } from './auth.module';
 import { CareerModule } from './career.module';
+import { UserModule } from './user.module';
 
 @Module({
   imports: [
@@ -14,9 +16,10 @@ import { CareerModule } from './career.module';
       rootPath: CLIENT_BUILD_PATH,
     }),
     AuthModule,
-    CareerModule
+    CareerModule,
+    UserModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: []
 })
 export class AppModule {

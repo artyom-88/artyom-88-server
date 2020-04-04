@@ -1,6 +1,7 @@
 import { APP_AUTH_FAILED, APP_AUTH_REQUEST, APP_AUTH_SUCCEEDED, APP_LOGOUT } from '../actions';
 
 const initialState = {
+  accessToken: null,
   authorized: false,
   error: null,
   loading: false,
@@ -12,17 +13,18 @@ const initialState = {
 const app = (state = initialState, { type, payload }) => {
   switch (type) {
     case APP_AUTH_REQUEST: {
-      return { ...state, loading: true, error: null };
+      return { ...state, error: null, loading: true };
     }
     case APP_AUTH_SUCCEEDED: {
-      return { ...state, loading: false, authorized: true, error: null };
+      const { accessToken } = payload;
+      return { ...state, accessToken, authorized: true, error: null, loading: false };
     }
     case APP_AUTH_FAILED: {
       const { error } = payload;
-      return { ...state, loading: false, error };
+      return { ...state, accessToken: null, error, loading: false };
     }
     case APP_LOGOUT: {
-      return { ...state, authorized: false };
+      return { ...state, accessToken: null, authorized: false };
     }
     default: {
       return state;

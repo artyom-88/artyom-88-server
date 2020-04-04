@@ -13,8 +13,9 @@ export const appAuthRequest = () => ({
   type: APP_AUTH_REQUEST,
 });
 
-export const appAuthSucceeded = () => ({
+export const appAuthSucceeded = (accessToken) => ({
   type: APP_AUTH_SUCCEEDED,
+  payload: { accessToken },
 });
 
 export const appAuthFailed = (error) => ({

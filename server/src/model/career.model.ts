@@ -12,7 +12,6 @@ export const CareerModel = new mongoose.Schema({
 });
 
 export interface Career extends mongoose.Document {
-  readonly id: string;
   readonly title: string;
   readonly site: string;
   readonly post: string;
