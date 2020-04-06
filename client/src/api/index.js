@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PATH = 'http://localhost:3000/api';
+const PATH = '/api';
 
 // TODO: add encryption or SSL
 export const auth = async (username, password) =>
