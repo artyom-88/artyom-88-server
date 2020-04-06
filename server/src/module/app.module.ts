@@ -4,6 +4,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { CLIENT_BUILD_PATH, ENV_FILE_PATH } from '../const';
 import { AppController } from '../controller/app.controller';
 import { AuthModule } from './auth.module';
+import { BlogModule } from './blog.module';
 import { CareerModule } from './career.module';
 import { UserModule } from './user.module';
 
@@ -16,6 +17,7 @@ import { UserModule } from './user.module';
       rootPath: CLIENT_BUILD_PATH,
     }),
     AuthModule,
+    BlogModule,
     CareerModule,
     UserModule
   ],

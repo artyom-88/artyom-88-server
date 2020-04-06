@@ -1,4 +1,4 @@
-export class CreateCareerDto {
+export class CreateBlogDto {
   readonly title: string;
   readonly site: string;
   readonly post: string;
