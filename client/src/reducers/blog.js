@@ -6,11 +6,15 @@ import {
   BLOG_LOAD_REQUEST,
   BLOG_LOAD_SUCCEEDED,
 } from '../actions';
+import wrapper from './wrapper';
 
 const initialState = {
   list: [],
 };
 
+/**
+ * Blog state reducers
+ */
 const reducers = {
   [BLOG_LOAD_LIST_REQUEST]: (state) => {
     return { ...state, error: null, loading: true };
@@ -39,11 +43,6 @@ const reducers = {
   },
 };
 
-const blog = (state = initialState, { type, payload }) => {
-  if (reducers.hasOwnProperty(type)) {
-    return reducers[type](state, payload);
-  }
-  return state;
-};
+const blog = wrapper(reducers, initialState);
 
 export default blog;
