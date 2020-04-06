@@ -9,8 +9,12 @@ import {
   appUserFailed,
   appUserRequest,
   appUserSucceeded,
+  BLOG_LOAD_LIST,
+  blogLoadListFailed,
+  blogLoadListRequest,
+  blogLoadListSucceeded,
 } from '../actions';
-import { auth, user } from '../api';
+import { auth, loadBlogList, user } from '../api';
 import { MSG } from '../const';
 
 function* appAuth({ payload }) {
@@ -43,9 +47,24 @@ function* appUser({ payload }) {
   }
 }
 
+function* blogListLoad() {
+  try {
+    yield put(blogLoadListRequest());
+    const response = yield call(() => loadBlogList());
+    if (response.status === 200) {
+      yield put(blogLoadListSucceeded());
+    } else {
+      yield put(blogLoadListFailed());
+    }
+  } catch (e) {
+    yield put(blogLoadListFailed());
+  }
+}
+
 function* rootSaga() {
   yield takeLatest(APP_AUTH, appAuth);
   yield takeEvery(APP_USER, appUser);
+  yield takeEvery(BLOG_LOAD_LIST, blogListLoad);
 }
 
 export default rootSaga;
