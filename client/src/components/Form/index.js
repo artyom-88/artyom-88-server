@@ -1,22 +1,32 @@
 import PropTypes from 'prop-types';
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import TextInput from '../TextInput';
 
-const Form = ({className, inputs, onSubmit}) => {
-  const [form, setForm] = useState({});
+const Form = ({ className, initialData, inputs, onSubmit }) => {
+  const [form, setForm] = useState(initialData);
 
-  const onChange = useCallback((field, value) => {
-    setForm({...form, [field]: value});
-  }, [form, setForm]);
+  useEffect(() => {
+    setForm(initialData);
+  }, [initialData]);
 
-  const submit = useCallback((e) => {
-    e.preventDefault();
-    onSubmit(form, setForm);
-  }, [form, setForm, onSubmit]);
+  const onChange = useCallback(
+    (field, value) => {
+      setForm({ ...form, [field]: value });
+    },
+    [form, setForm]
+  );
+
+  const submit = useCallback(
+    (e) => {
+      e.preventDefault();
+      onSubmit(form, setForm);
+    },
+    [form, setForm, onSubmit]
+  );
 
   return (
     <form className={className} onSubmit={submit}>
-      {inputs.map(({autocomplete, className: inputClassName, field, label, required, type}) => (
+      {inputs.map(({ autocomplete, className: inputClassName, field, label, required, type }) => (
         <TextInput
           autocomplete={autocomplete}
           className={inputClassName}
@@ -29,19 +39,23 @@ const Form = ({className, inputs, onSubmit}) => {
           value={form[field]}
         />
       ))}
-      <div className='flexBox justifyContentCenter'>
-        <input type="submit" value="Submit"/>
+      <div className='row'>
+        <div className='flexBox justifyContentCenter col-12'>
+          <input type='submit' value='Submit' />
+        </div>
       </div>
     </form>
   );
 };
 
 Form.defaultProps = {
-  className: 'flexBox flexColumn justifyContentCenter'
+  className: 'flexBox flexColumn justifyContentCenter',
+  initialData: {},
 };
 
 Form.propTypes = {
   className: PropTypes.string,
+  initialData: PropTypes.object,
   inputs: PropTypes.arrayOf(
     PropTypes.shape({
       autocomplete: PropTypes.string,
@@ -51,8 +65,9 @@ Form.propTypes = {
       required: PropTypes.bool,
       type: PropTypes.string,
       value: PropTypes.string,
-    }).isRequired),
-  onSubmit: PropTypes.func.isRequired
+    }).isRequired
+  ),
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;

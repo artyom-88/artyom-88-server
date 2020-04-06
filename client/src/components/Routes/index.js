@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Blog from '../Blog';
+import { default as BlogCard } from '../Blog/Card';
 import Career from '../Career';
 import Login from '../Login';
 import Main from '../Main';
@@ -15,6 +16,7 @@ const Routes = () => (
         <Redirect from='/main' to='/' />
         <Route exact={true} path='/' component={Main} />
         <Route exact={true} path='/blog' component={Blog} />
+        <Route exact={true} path='/blog/:id' component={BlogCard} />
         <Route exact={true} path='/career' component={Career} />
         <Route exact={true} path='/login' component={Login} />
         <Route component={NotFound} />

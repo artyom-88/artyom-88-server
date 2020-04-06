@@ -9,12 +9,16 @@ import {
   appUserFailed,
   appUserRequest,
   appUserSucceeded,
+  BLOG_LOAD,
   BLOG_LOAD_LIST,
+  blogLoadFailed,
   blogLoadListFailed,
   blogLoadListRequest,
   blogLoadListSucceeded,
+  blogLoadRequest,
+  blogLoadSucceeded,
 } from '../actions';
-import { auth, loadBlogList, user } from '../api';
+import { auth, loadBlog, loadBlogList, user } from '../api';
 import { MSG } from '../const';
 
 function* appAuth({ payload }) {
@@ -61,10 +65,26 @@ function* blogListLoad() {
   }
 }
 
+function* blogLoad({ payload }) {
+  try {
+    yield put(blogLoadRequest());
+    const response = yield call(() => loadBlog(payload.id));
+    if (response.status === 200) {
+      yield put(blogLoadSucceeded(response.data));
+    } else {
+      yield put(blogLoadFailed());
+    }
+  } catch (e) {
+    yield put(blogLoadFailed());
+  }
+}
+
+// TODO: split sagas
 function* rootSaga() {
   yield takeLatest(APP_AUTH, appAuth);
   yield takeEvery(APP_USER, appUser);
   yield takeEvery(BLOG_LOAD_LIST, blogListLoad);
+  yield takeEvery(BLOG_LOAD, blogLoad);
 }
 
 export default rootSaga;
