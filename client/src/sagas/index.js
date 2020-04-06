@@ -16,7 +16,8 @@ import { MSG } from '../const';
 function* appAuth({ payload }) {
   try {
     yield put(appAuthRequest());
-    const response = yield call(() => auth(payload.name, payload.password));
+    const { name, password } = payload;
+    const response = yield call(() => auth(name, password));
     if (response.status === 201) {
       yield put(appAuthSucceeded(response.data.accessToken));
       yield put(push('/'));
