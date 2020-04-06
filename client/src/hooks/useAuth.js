@@ -11,12 +11,14 @@ const useAuth = (accessToken, authorized) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!authorized) {
-      if (accessToken) {
-        dispatch(appUser(accessToken));
-      } else if (location.pathname !== LOGIN_PATH) {
-        history.push(LOGIN_PATH);
-      }
+    if (authorized) {
+      return;
+    }
+
+    if (accessToken) {
+      dispatch(appUser(accessToken));
+    } else if (location.pathname !== LOGIN_PATH) {
+      history.push(LOGIN_PATH);
     }
   }, [accessToken, authorized, dispatch, history, location]);
 };
