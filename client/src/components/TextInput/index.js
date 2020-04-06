@@ -1,17 +1,20 @@
 import PropTypes from 'prop-types';
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 
-const TextInput = ({autocomplete, className, field, label, onChange, required, type, value}) => {
-
-  const inputHandler = useCallback((e) => {
-    onChange(field, e.target.value);
-  }, [field, onChange]);
+const TextInput = ({ autocomplete, className, field, label, onChange, required, type, value }) => {
+  const inputHandler = useCallback(
+    (e) => {
+      onChange(field, e.target.value);
+    },
+    [field, onChange]
+  );
 
   return (
     <label className={className}>
-      {label}&nbsp;
+      <div className='col-2'>{label}&nbsp;</div>
       <input
         autoComplete={autocomplete}
+        className='col-10'
         onChange={inputHandler}
         required={required}
         type={type}
@@ -23,11 +26,11 @@ const TextInput = ({autocomplete, className, field, label, onChange, required, t
 
 TextInput.defaultProps = {
   autocomplete: undefined,
-  className: 'flexBox justifyContentBetween alignItemsCenter',
+  className: 'alignItemsCenter row',
   label: '',
   required: false,
   type: 'text',
-  value: ''
+  value: '',
 };
 
 TextInput.propTypes = {

@@ -7,6 +7,7 @@ import {
   APP_USER_REQUEST,
   APP_USER_SUCCEEDED,
 } from '../actions';
+import wrapper from './wrapper';
 
 const initialState = {
   accessToken: null,
@@ -15,6 +16,9 @@ const initialState = {
   loading: false,
 };
 
+/**
+ * App state reducers
+ */
 const reducers = {
   [APP_AUTH_REQUEST]: (state) => {
     return { ...state, error: null, loading: true };
@@ -45,14 +49,6 @@ const reducers = {
   },
 };
 
-/**
- * App state reducer
- */
-const app = (state = initialState, { type, payload }) => {
-  if (reducers.hasOwnProperty(type)) {
-    return reducers[type](state, payload);
-  }
-  return state;
-};
+const app = wrapper(reducers, initialState);
 
 export default app;

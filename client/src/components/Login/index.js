@@ -37,7 +37,7 @@ const Login = () => {
   }, [dispatch]);
 
   return (
-    <Page className='flexBox flexColumn justifyContentCenter alignItemsCenter flexGrow-1' title='Login Page'>
+    <Page className='flexBox flexColumn' title='Login Page'>
       {authorized ? (
         <>
           <div>You are authorized</div>
