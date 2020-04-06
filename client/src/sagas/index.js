@@ -52,7 +52,7 @@ function* blogListLoad() {
     yield put(blogLoadListRequest());
     const response = yield call(() => loadBlogList());
     if (response.status === 200) {
-      yield put(blogLoadListSucceeded());
+      yield put(blogLoadListSucceeded(response.data));
     } else {
       yield put(blogLoadListFailed());
     }

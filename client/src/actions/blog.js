@@ -11,10 +11,12 @@ export const blogLoadListRequest = () => ({
   type: BLOG_LOAD_LIST_REQUEST,
 });
 
-export const blogLoadListSucceeded = () => ({
+export const blogLoadListSucceeded = (list) => ({
   type: BLOG_LOAD_LIST_SUCCEEDED,
+  payload: { list },
 });
 
-export const blogLoadListFailed = () => ({
+export const blogLoadListFailed = (error) => ({
   type: BLOG_LOAD_LIST_FAILED,
+  payload: { error },
 });
