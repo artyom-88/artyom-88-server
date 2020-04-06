@@ -10,10 +10,7 @@ const Page = ({ className, title, children }) => {
   return (
     <div className={`${styles.container} ${className}`}>
       {title && <h1>{title}</h1>}
-      <div className={styles.content}>
-        {children}
-        {loading && <LoadingIndicator className={styles.indicator} />}
-      </div>
+      <div className={styles.content}>{loading ? <LoadingIndicator className={styles.indicator} /> : children}</div>
       {error && (
         <div className='alert alert-danger' role='alert'>
           {error}
