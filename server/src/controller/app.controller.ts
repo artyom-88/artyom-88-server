@@ -11,16 +11,12 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post('api/auth')
   async login(@Request() req) {
-    console.log('AppController login');
-    console.log(JSON.stringify(req.user, null, 1));
     return this.authService.login(req.user);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('api/user')
   user(@Request() req) {
-    console.log('AppController user');
-    console.log(JSON.stringify(req.user, null, 1));
     return req.user;
   }
 }

@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const CareerModel = new mongoose.Schema({
+export const BlogModel = new mongoose.Schema({
   title: { type: String, required: true },
   site: String,
   post: { type: String, required: true },
@@ -10,7 +10,7 @@ export const CareerModel = new mongoose.Schema({
   endDate: Date,
 });
 
-export interface Career extends mongoose.Document {
+export interface Blog extends mongoose.Document {
   readonly title: string;
   readonly site: string;
   readonly post: string;

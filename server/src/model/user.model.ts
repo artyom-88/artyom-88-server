@@ -1,7 +1,6 @@
 import * as mongoose from 'mongoose';
 
 export const UserModel = new mongoose.Schema({
-  id: Number,
   name: String,
   password: String,
 });
