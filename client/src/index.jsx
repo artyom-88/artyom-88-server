@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {HashRouter} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { useHistory } from 'react-router';
+import { HashRouter } from 'react-router-dom';
 import './assets/styles.scss';
 import App from './components/App';
-import store from './store';
+import configStore from './store';
+
+const HistoryWrapper = () => {
+  const history = useHistory();
+  return (
+    <Provider store={configStore(history)}>
+      <App />
+    </Provider>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <HashRouter>
-        <App/>
-      </HashRouter>
-    </Provider>
+    <HashRouter>
+      <HistoryWrapper />
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

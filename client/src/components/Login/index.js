@@ -7,6 +7,7 @@ import Page from '../Page';
 
 const inputs = [
   {
+    autocomplete: 'username',
     field: 'name',
     label: 'Name',
     required: true,

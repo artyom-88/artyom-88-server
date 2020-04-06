@@ -1,4 +1,12 @@
-import { APP_AUTH_FAILED, APP_AUTH_REQUEST, APP_AUTH_SUCCEEDED, APP_LOGOUT } from '../actions';
+import {
+  APP_AUTH_FAILED,
+  APP_AUTH_REQUEST,
+  APP_AUTH_SUCCEEDED,
+  APP_LOGOUT,
+  APP_USER_REQUEST,
+  APP_USER_SUCCEEDED,
+  APP_USER_FAILED,
+} from '../actions';
 
 const initialState = {
   accessToken: null,
@@ -25,6 +33,15 @@ const app = (state = initialState, { type, payload }) => {
     }
     case APP_LOGOUT: {
       return { ...state, accessToken: null, authorized: false };
+    }
+    case APP_USER_REQUEST: {
+      return { ...state, loading: true };
+    }
+    case APP_USER_SUCCEEDED: {
+      return { ...state, authorized: true, loading: false };
+    }
+    case APP_USER_FAILED: {
+      return { ...state, accessToken: null, authorized: false, loading: false };
     }
     default: {
       return state;
