@@ -1,19 +1,42 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { blogLoadList } from '../../action-creators';
+import { blogCreate, blogLoadList } from '../../action-creators';
 import Page from '../Page';
 import List from './List';
 
 const Blog = () => {
   const dispatch = useDispatch();
+  const [edit, setEdit] = useState(false);
+  const add = useCallback(() => setEdit(true), [setEdit]);
+  const cancel = useCallback(() => setEdit(false), [setEdit]);
+  const save = useCallback(
+    (item) => {
+      dispatch(blogCreate(item));
+      setEdit(false);
+    },
+    [dispatch, setEdit]
+  );
 
   useEffect(() => {
     dispatch(blogLoadList());
   }, [dispatch]);
 
   return (
-    <Page title='Blog'>
-      <List />
+    <Page
+      title='Blog'
+      buttons={
+        <button
+          className={`btn btn-${edit ? 'secondary' : 'success'}`}
+          disabled={edit}
+          onClick={add}
+          title='Click to add new record'
+          type='button'
+        >
+          Add
+        </button>
+      }
+    >
+      <List onCancel={cancel} edit={edit} onSave={save} />
     </Page>
   );
 };

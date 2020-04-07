@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
-const TextInput = ({ autocomplete, className, field, label, onChange, required, type, value }) => {
+const TextInput = ({ autocomplete, className, field, label, onChange, placeholder, required, type, value }) => {
   const inputHandler = useCallback(
     (e) => {
       onChange(field, e.target.value);
@@ -11,11 +11,12 @@ const TextInput = ({ autocomplete, className, field, label, onChange, required, 
 
   return (
     <label className={className}>
-      <div className='col-2'>{label}&nbsp;</div>
+      {label && <div className='col-2'>{label}&nbsp;</div>}
       <input
         autoComplete={autocomplete}
         className='col-10'
         onChange={inputHandler}
+        placeholder={placeholder}
         required={required}
         type={type}
         value={value || ''}
@@ -28,6 +29,7 @@ TextInput.defaultProps = {
   autocomplete: undefined,
   className: 'alignItemsCenter row',
   label: '',
+  placeholder: undefined,
   required: false,
   type: 'text',
   value: '',
@@ -39,6 +41,7 @@ TextInput.propTypes = {
   field: PropTypes.string.isRequired,
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
   required: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.string,

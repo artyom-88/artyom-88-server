@@ -48,10 +48,14 @@ const Card = () => {
   }, [dispatch, id]);
 
   return (
-    <Page title={`Edit blog record`}>
-      <div>{`Id: ${id}`}</div>
-      {item && <div>{`Old date: ${item.year}-${item.month}-${item.day}`}</div>}
-      <Form initialData={item} inputs={inputs} onSubmit={onSubmit} />
+    <Page title={`Blog card`}>
+      <h5 className='card-title'>{`Id: ${id}`}</h5>
+      {item && <h6 className='card-subtitle mb-2 text-muted'>{`Old date: ${item.year}-${item.month}-${item.day}`}</h6>}
+      <div className='card'>
+        <div className='card-body'>
+          <Form initialData={item} inputs={inputs} onSubmit={onSubmit} />
+        </div>
+      </div>
     </Page>
   );
 };

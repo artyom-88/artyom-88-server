@@ -1,8 +1,12 @@
- This project contains Back-end sources in development state for https://artyom-ganev.github.io/ site.  
+ This project contains Back-end sources in development state for [artyom-ganev.github.io](https://artyom-ganev.github.io) site.
+ 
+ App is deployed on Heroku [here](https://artyom-ganev-node.herokuapp.com)  
 - - - -
 **Made with:**
-* [axios](https://github.com/axios/axios/)
+* [axios](https://github.com/axios/axios)
+* [bootstrap css](https://getbootstrap.com)
 * [Eslint](https://eslint.org)
+* [Heroku](https://www.heroku.com)
 * [husky](https://github.com/typicode/husky)
 * [Jest](https://jestjs.io/)
 * [lint-staged](https://github.com/okonet/lint-staged)

@@ -1,21 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
+import useForm from '../../hooks/useForm';
 import DateInput from '../DateInput';
 import TextInput from '../TextInput';
+import styles from './styles.module.scss';
 
-const Form = ({ className, initialData = {}, inputs, onSubmit }) => {
-  const [form, setForm] = useState(initialData);
-
-  useEffect(() => {
-    setForm(initialData);
-  }, [initialData]);
-
-  const onChange = useCallback(
-    (field, value) => {
-      setForm({ ...form, [field]: value });
-    },
-    [form, setForm]
-  );
+const Form = ({ className, initialData, inputs, onSubmit }) => {
+  const { form, hasChanges, onChange, setForm } = useForm(initialData);
 
   const submit = useCallback(
     (e) => {
@@ -23,6 +14,14 @@ const Form = ({ className, initialData = {}, inputs, onSubmit }) => {
       onSubmit(form);
     },
     [form, onSubmit]
+  );
+
+  const reset = useCallback(
+    (e) => {
+      e.preventDefault();
+      setForm(initialData);
+    },
+    [initialData, setForm]
   );
 
   return (
@@ -44,8 +43,19 @@ const Form = ({ className, initialData = {}, inputs, onSubmit }) => {
         );
       })}
       <div className='row'>
-        <div className='flexBox justifyContentCenter col-12'>
-          <input type='submit' value='Submit' />
+        <div className={`flexBox justifyContentCenter col-12 ${styles.buttons}`}>
+          {hasChanges && (
+            <>
+              <input
+                className={`btn btn-${hasChanges ? 'warning' : 'secondary'}`}
+                type='reset'
+                value='Reset'
+                onClick={reset}
+              />
+              &nbsp;
+              <input className={`btn btn-${hasChanges ? 'success' : 'secondary'}`} type='submit' value='Submit' />
+            </>
+          )}
         </div>
       </div>
     </form>

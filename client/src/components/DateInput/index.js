@@ -15,7 +15,7 @@ const DateInput = ({ autocomplete, className, field, label, onChange, required, 
 
   return (
     <label className={className}>
-      <div className='col-2'>{label}&nbsp;</div>
+      {label && <div className='col-2'>{label}&nbsp;</div>}
       <DatePicker
         autoComplete={autocomplete}
         dateFormat='MM/dd/yyyy'

@@ -10,12 +10,14 @@ const inputs = [
     autocomplete: 'username',
     field: 'name',
     label: 'Name',
+    placeholder: 'Enter user name',
     required: true,
   },
   {
     autocomplete: 'current-password',
     field: 'password',
     label: 'Password',
+    placeholder: 'Enter password',
     required: true,
     type: 'password',
   },
@@ -41,7 +43,9 @@ const Login = () => {
       {authorized ? (
         <>
           <div>You are authorized</div>
-          <button onClick={logOut}>Log out</button>
+          <button onClick={logOut} className='btn btn-danger' type='button'>
+            Log out
+          </button>
         </>
       ) : (
         <Form inputs={inputs} onSubmit={auth} />
