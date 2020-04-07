@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
+import DateInput from '../DateInput';
 import TextInput from '../TextInput';
 
-const Form = ({ className, initialData, inputs, onSubmit }) => {
+const Form = ({ className, initialData = {}, inputs, onSubmit }) => {
   const [form, setForm] = useState(initialData);
 
   useEffect(() => {
@@ -19,26 +20,29 @@ const Form = ({ className, initialData, inputs, onSubmit }) => {
   const submit = useCallback(
     (e) => {
       e.preventDefault();
-      onSubmit(form, setForm);
+      onSubmit(form);
     },
-    [form, setForm, onSubmit]
+    [form, onSubmit]
   );
 
   return (
     <form className={className} onSubmit={submit}>
-      {inputs.map(({ autocomplete, className: inputClassName, field, label, required, type }) => (
-        <TextInput
-          autocomplete={autocomplete}
-          className={inputClassName}
-          field={field}
-          key={field}
-          label={label}
-          onChange={onChange}
-          required={required}
-          type={type}
-          value={form[field]}
-        />
-      ))}
+      {inputs.map(({ autocomplete, className: inputClassName, field, label, required, type }) => {
+        const Control = type === 'date' ? DateInput : TextInput;
+        return (
+          <Control
+            autocomplete={autocomplete}
+            className={inputClassName}
+            field={field}
+            key={field}
+            label={label}
+            onChange={onChange}
+            required={required}
+            type={type}
+            value={form[field]}
+          />
+        );
+      })}
       <div className='row'>
         <div className='flexBox justifyContentCenter col-12'>
           <input type='submit' value='Submit' />

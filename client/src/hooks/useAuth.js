@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
-import { appUser } from '../actions';
+import { appUser } from '../action-creators';
 
 const LOGIN_PATH = '/login';
 

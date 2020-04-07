@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { blogLoadList } from '../../actions';
+import { blogLoadList } from '../../action-creators';
 import Page from '../Page';
 import List from './List';
 

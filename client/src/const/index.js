@@ -8,6 +8,8 @@ export const MAIN = { id: 'main', name: 'Main', url: '' };
  */
 export const PAGES = [MAIN, BLOG, CAREER, LOGIN];
 
+export const API_PATH = '/api';
+
 export const MSG = {
   AUTH_FAILED: 'Authorization failed',
 };

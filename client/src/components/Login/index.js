@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { appAuth, appLogout } from '../../actions';
+import { appAuth, appLogout } from '../../action-creators';
 import { appSelector } from '../../selectors';
 import Form from '../Form';
 import Page from '../Page';

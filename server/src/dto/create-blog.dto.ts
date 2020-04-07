@@ -1,9 +1,6 @@
 export class CreateBlogDto {
   readonly title: string;
-  readonly site: string;
-  readonly post: string;
-  readonly description: string;
-  readonly tools: string;
-  readonly startDate: Date;
-  readonly endDate: Date;
+  readonly link: string;
+  readonly linkCaption: string;
+  readonly date: Date;
 }

@@ -1,24 +1,24 @@
 import { push } from 'react-router-redux';
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import {
-  APP_AUTH,
-  APP_USER,
   appAuthFailed,
   appAuthRequest,
   appAuthSucceeded,
   appUserFailed,
   appUserRequest,
   appUserSucceeded,
-  BLOG_LOAD,
-  BLOG_LOAD_LIST,
   blogLoadFailed,
   blogLoadListFailed,
   blogLoadListRequest,
   blogLoadListSucceeded,
   blogLoadRequest,
   blogLoadSucceeded,
-} from '../actions';
-import { auth, loadBlog, loadBlogList, user } from '../api';
+  blogUpdateFailed,
+  blogUpdateRequest,
+  blogUpdateSucceeded,
+} from '../action-creators';
+import { APP_AUTH, APP_USER, BLOG_LOAD, BLOG_LOAD_LIST, BLOG_UPDATE } from '../actions';
+import { auth, loadBlog, loadBlogList, updateBlog, user } from '../api';
 import { MSG } from '../const';
 
 function* appAuth({ payload }) {
@@ -79,12 +79,27 @@ function* blogLoad({ payload }) {
   }
 }
 
+function* blogUpdate({ payload }) {
+  try {
+    yield put(blogUpdateRequest());
+    const response = yield call(() => updateBlog(payload.id, payload.item));
+    if (response.status === 200) {
+      yield put(blogUpdateSucceeded(response.data));
+    } else {
+      yield put(blogUpdateFailed());
+    }
+  } catch (e) {
+    yield put(blogUpdateFailed());
+  }
+}
+
 // TODO: split sagas
 function* rootSaga() {
   yield takeLatest(APP_AUTH, appAuth);
   yield takeEvery(APP_USER, appUser);
   yield takeEvery(BLOG_LOAD_LIST, blogListLoad);
   yield takeEvery(BLOG_LOAD, blogLoad);
+  yield takeEvery(BLOG_UPDATE, blogUpdate);
 }
 
 export default rootSaga;
