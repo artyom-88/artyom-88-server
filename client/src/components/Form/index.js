@@ -1,28 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import React from 'react';
 import useForm from '../../hooks/useForm';
 import DateInput from '../DateInput';
 import TextInput from '../TextInput';
 import styles from './styles.module.scss';
 
 const Form = ({ className, initialData, inputs, onSubmit }) => {
-  const { form, hasChanges, onChange, setForm } = useForm(initialData);
-
-  const submit = useCallback(
-    (e) => {
-      e.preventDefault();
-      onSubmit(form);
-    },
-    [form, onSubmit]
-  );
-
-  const reset = useCallback(
-    (e) => {
-      e.preventDefault();
-      setForm(initialData);
-    },
-    [initialData, setForm]
-  );
+  const { form, hasChanges, onChange, reset, submit } = useForm(onSubmit, initialData);
 
   return (
     <form className={className} onSubmit={submit}>

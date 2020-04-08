@@ -23,7 +23,7 @@ const List = ({ onCancel, edit, onSave }) => {
       <Header />
       {edit && <ListEditor onSave={onSave} onCancel={onCancel} />}
       {list.map((item) => (
-        <ListItem {...item} key={item['_id']} />
+        <ListItem {...item} key={item.id} />
       ))}
     </ul>
   );

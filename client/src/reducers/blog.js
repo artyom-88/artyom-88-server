@@ -12,21 +12,19 @@ import {
   BLOG_UPDATE_REQUEST,
   BLOG_UPDATE_SUCCEEDED,
 } from '../actions';
-import { dateFromString } from '../util';
+import Blog from '../model/Blog';
 import { onRequest, wrap } from './helper';
 
 const initialState = {
   list: [],
 };
 
-const onWriteItemSuccess = (state, payload) => {
+const onLoadItemSuccess = (state, payload) => {
   const { item } = payload;
-  const { _id: id, date } = item;
-  const newItem = { ...item, date: dateFromString(date) };
+  const { _id: id } = item;
+  const newItem = Blog.fromDto(item);
   const stateList = state.list;
-  const list = stateList.length
-    ? state.list.map((listItem) => (listItem['_id'] === id ? newItem : listItem))
-    : [newItem];
+  const list = stateList.length ? state.list.map((listItem) => (listItem.id === id ? newItem : listItem)) : [newItem];
   return { ...state, error: null, list, loading: false };
 };
 
@@ -41,11 +39,7 @@ const onWriteItemFailure = (state, payload) => {
 const reducers = {
   [BLOG_LOAD_LIST_REQUEST]: onRequest,
   [BLOG_LOAD_LIST_SUCCEEDED]: (state, payload) => {
-    const list = payload.list.map((item) => ({
-      ...item,
-      date: dateFromString(item.date),
-    }));
-
+    const list = payload.list.map((item) => Blog.fromDto(item));
     return { ...state, error: null, list, loading: false };
   },
   [BLOG_LOAD_LIST_FAILED]: (state, payload) => {
@@ -53,13 +47,13 @@ const reducers = {
     return { ...state, error, list: [], loading: false };
   },
   [BLOG_LOAD_REQUEST]: onRequest,
-  [BLOG_LOAD_SUCCEEDED]: onWriteItemSuccess,
+  [BLOG_LOAD_SUCCEEDED]: onLoadItemSuccess,
   [BLOG_LOAD_FAILED]: onWriteItemFailure,
   [BLOG_CREATE_REQUEST]: onRequest,
-  [BLOG_CREATE_SUCCEEDED]: onWriteItemSuccess,
+  [BLOG_CREATE_SUCCEEDED]: onLoadItemSuccess,
   [BLOG_CREATE_FAILED]: onWriteItemFailure,
   [BLOG_UPDATE_REQUEST]: onRequest,
-  [BLOG_UPDATE_SUCCEEDED]: onWriteItemSuccess,
+  [BLOG_UPDATE_SUCCEEDED]: onLoadItemSuccess,
   [BLOG_UPDATE_FAILED]: onWriteItemFailure,
 };
 

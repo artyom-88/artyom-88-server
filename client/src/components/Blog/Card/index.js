@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { blogLoad, blogUpdate } from '../../../action-creators';
-import { blogSelector } from '../../../selectors';
+import { blogItemSelector } from '../../../selectors';
 import Form from '../../Form';
 import Page from '../../Page';
 
@@ -33,8 +33,7 @@ const inputs = [
 const Card = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { list } = useSelector(blogSelector);
-  const item = list.filter(({ _id }) => _id === id)[0];
+  const item = useSelector(blogItemSelector(id));
 
   const onSubmit = useCallback(
     (newItem) => {

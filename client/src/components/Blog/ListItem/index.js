@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
-const ListItem = ({ _id: id, date, link, linkCaption, title, year, month, day }) => {
+const ListItem = ({ id, date, link, linkCaption, title, year, month, day }) => {
   return (
     <li className={`list-group-item ${styles.container}`} title='Click to open card'>
       <Link className='row' to={`/blog/${id}`}>

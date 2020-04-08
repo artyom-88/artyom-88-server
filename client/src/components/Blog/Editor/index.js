@@ -1,11 +1,17 @@
-import React, { useCallback } from 'react';
-import useForm from '../../../hooks/useForm';
+import React, { useCallback, useState } from 'react';
 import DateInput from '../../DateInput';
 import TextInput from '../../TextInput';
 import styles from './styles.module.scss';
 
 const ListEditor = ({ onCancel, onSave }) => {
-  const { form, onChange, setForm } = useForm({});
+  const [form, setForm] = useState({});
+
+  const onChange = useCallback(
+    (field, value) => {
+      setForm({ ...form, [field]: value });
+    },
+    [form, setForm]
+  );
 
   const cancel = useCallback(() => {
     setForm({});
