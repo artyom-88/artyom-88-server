@@ -7,6 +7,9 @@ import {
   appUserFailed,
   appUserRequest,
   appUserSucceeded,
+  blogCreateFailed,
+  blogCreateRequest,
+  blogCreateSucceeded,
   blogLoadFailed,
   blogLoadListFailed,
   blogLoadListRequest,
@@ -17,8 +20,8 @@ import {
   blogUpdateRequest,
   blogUpdateSucceeded,
 } from '../action-creators';
-import { APP_AUTH, APP_USER, BLOG_LOAD, BLOG_LOAD_LIST, BLOG_UPDATE } from '../actions';
-import { auth, loadBlog, loadBlogList, updateBlog, user } from '../api';
+import { APP_AUTH, APP_USER, BLOG_CREATE, BLOG_LOAD, BLOG_LOAD_LIST, BLOG_UPDATE } from '../actions';
+import { auth, createBlog, loadBlog, loadBlogList, updateBlog, user } from '../api';
 import { MSG } from '../const';
 
 function* appAuth({ payload }) {
@@ -93,6 +96,20 @@ function* blogUpdate({ payload }) {
   }
 }
 
+function* blogCreate({ payload }) {
+  try {
+    yield put(blogCreateRequest());
+    const response = yield call(createBlog, payload.item);
+    if (response.status === 200) {
+      yield put(blogCreateSucceeded(response.data));
+    } else {
+      yield put(blogCreateFailed());
+    }
+  } catch (e) {
+    yield put(blogCreateFailed());
+  }
+}
+
 // TODO: split sagas
 function* rootSaga() {
   yield takeLatest(APP_AUTH, appAuth);
@@ -100,6 +117,7 @@ function* rootSaga() {
   yield takeEvery(BLOG_LOAD_LIST, blogListLoad);
   yield takeEvery(BLOG_LOAD, blogLoad);
   yield takeEvery(BLOG_UPDATE, blogUpdate);
+  yield takeEvery(BLOG_CREATE, blogCreate);
 }
 
 export default rootSaga;
