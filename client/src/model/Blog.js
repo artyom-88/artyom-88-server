@@ -17,8 +17,15 @@ class Blog {
     return new Blog(id, title, dateFromString(date), link, linkCaption, year, month, day);
   }
 
+  update({ title, date, link, linkCaption }) {
+    this.title = title;
+    this.date = date;
+    this.link = link;
+    this.linkCaption = linkCaption;
+  }
+
   toDto() {
-    debugger;
+    // TODO: fix problem with new date
     return {
       _id: this.id,
       title: this.title,

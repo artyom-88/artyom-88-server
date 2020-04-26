@@ -28,7 +28,7 @@ function* appAuth({ payload }) {
   try {
     yield put(appAuthRequest());
     const { name, password } = payload;
-    const response = yield call(() => auth(name, password));
+    const response = yield call(auth, name, password);
     if (response.status === 201) {
       yield put(appAuthSucceeded(response.data.accessToken));
       yield put(push('/'));
@@ -43,7 +43,7 @@ function* appAuth({ payload }) {
 function* appUser({ payload }) {
   try {
     yield put(appUserRequest());
-    const response = yield call(() => user(payload.accessToken));
+    const response = yield call(user, payload.accessToken);
     if (response.status === 200) {
       yield put(appUserSucceeded());
     } else {
@@ -57,7 +57,7 @@ function* appUser({ payload }) {
 function* blogListLoad() {
   try {
     yield put(blogLoadListRequest());
-    const response = yield call(() => loadBlogList());
+    const response = yield call(loadBlogList);
     if (response.status === 200) {
       yield put(blogLoadListSucceeded(response.data));
     } else {
@@ -71,7 +71,7 @@ function* blogListLoad() {
 function* blogLoad({ payload }) {
   try {
     yield put(blogLoadRequest());
-    const response = yield call(() => loadBlog(payload.id));
+    const response = yield call(loadBlog, payload.id);
     if (response.status === 200) {
       yield put(blogLoadSucceeded(response.data));
     } else {
@@ -85,7 +85,7 @@ function* blogLoad({ payload }) {
 function* blogUpdate({ payload }) {
   try {
     yield put(blogUpdateRequest());
-    const response = yield call(() => updateBlog(payload.id, payload.item));
+    const response = yield call(updateBlog, payload.id, payload.item);
     if (response.status === 200) {
       yield put(blogUpdateSucceeded(response.data));
     } else {

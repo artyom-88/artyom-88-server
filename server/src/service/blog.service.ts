@@ -6,8 +6,7 @@ import { Blog } from '../model/blog.model';
 
 @Injectable()
 export class BlogService {
-  constructor(@Inject(BLOG_MODEL) private readonly blogModel: Model<Blog>) {
-  }
+  constructor(@Inject(BLOG_MODEL) private readonly blogModel: Model<Blog>) {}
 
   async create(dto: CreateBlogDto): Promise<Blog> {
     console.log(`BlogService create(${JSON.stringify(dto, null, 1)})`);
@@ -18,7 +17,7 @@ export class BlogService {
   async update(id: string, dto: CreateBlogDto): Promise<Blog> {
     console.log(`BlogService update(${id}, ${JSON.stringify(dto, null, 1)})`);
     try {
-     await this.blogModel.updateOne({ _id: id }, dto);
+      await this.blogModel.updateOne({ _id: id }, dto);
     } catch (error) {
       throw new InternalServerErrorException('Could not update blog record.');
     }
@@ -26,7 +25,7 @@ export class BlogService {
   }
 
   async getAll() {
-    return await this.blogModel.find({}).exec();
+    return await this.blogModel.find({}).sort({ date: 'desc' }).exec();
   }
 
   async getById(id: string) {
