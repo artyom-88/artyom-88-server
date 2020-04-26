@@ -5,7 +5,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   &:visited {
@@ -52,7 +52,7 @@ h1, h2, h3 {
 }
 
 .justifyContentEnd {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .alignItemsCenter {

@@ -7,7 +7,7 @@ import {
   APP_USER_REQUEST,
   APP_USER_SUCCEEDED,
 } from '../actions';
-import wrapper from './wrapper';
+import { onRequest, wrap } from './helper';
 
 const initialState = {
   accessToken: null,
@@ -20,9 +20,7 @@ const initialState = {
  * App state reducers
  */
 const reducers = {
-  [APP_AUTH_REQUEST]: (state) => {
-    return { ...state, error: null, loading: true };
-  },
+  [APP_AUTH_REQUEST]: onRequest,
   [APP_AUTH_SUCCEEDED]: (state, { accessToken }) => {
     return {
       ...state,
@@ -38,9 +36,7 @@ const reducers = {
   [APP_LOGOUT]: (state) => {
     return { ...state, accessToken: null, authorized: false };
   },
-  [APP_USER_REQUEST]: (state) => {
-    return { ...state, loading: true };
-  },
+  [APP_USER_REQUEST]: onRequest,
   [APP_USER_SUCCEEDED]: (state) => {
     return { ...state, authorized: true, loading: false };
   },
@@ -49,6 +45,6 @@ const reducers = {
   },
 };
 
-const app = wrapper(reducers, initialState);
+const app = wrap(reducers, initialState);
 
 export default app;

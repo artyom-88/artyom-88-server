@@ -1,10 +1,14 @@
+import { isMoment, utc } from 'moment';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const TextInput = ({ autocomplete, className, field, label, onChange, placeholder, required, type, value }) => {
-  const inputHandler = useCallback(
-    (e) => {
-      onChange(field, e.target.value);
+const DateInput = ({ autocomplete, className, field, label, onChange, required, value }) => {
+  const date = value && value.toDate();
+  const onDateChange = useCallback(
+    (newDate) => {
+      onChange(field, utc(newDate));
     },
     [field, onChange]
   );
@@ -12,39 +16,33 @@ const TextInput = ({ autocomplete, className, field, label, onChange, placeholde
   return (
     <label className={className}>
       {label && <div className='col-2'>{label}&nbsp;</div>}
-      <input
+      <DatePicker
         autoComplete={autocomplete}
-        className='col-10'
-        onChange={inputHandler}
-        placeholder={placeholder}
+        dateFormat='MM/dd/yyyy'
+        selected={date}
+        onChange={onDateChange}
         required={required}
-        type={type}
-        value={value || ''}
       />
     </label>
   );
 };
 
-TextInput.defaultProps = {
+DateInput.defaultProps = {
   autocomplete: undefined,
   className: 'alignItemsCenter row',
   label: '',
-  placeholder: undefined,
   required: false,
-  type: 'text',
-  value: '',
+  value: null,
 };
 
-TextInput.propTypes = {
+DateInput.propTypes = {
   autocomplete: PropTypes.string,
   className: PropTypes.string,
   field: PropTypes.string.isRequired,
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
-  type: PropTypes.string,
-  value: PropTypes.string,
+  value: isMoment,
 };
 
-export default TextInput;
+export default DateInput;

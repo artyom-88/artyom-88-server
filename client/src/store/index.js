@@ -15,8 +15,10 @@ let store = null;
 
 const onStateChange = debounce(() => {
   const { app } = store.getState();
-  const { accessToken } = app;
-  if (accessToken) localStorage.setItem('accessToken', accessToken);
+  const accessToken = localStorage.getItem('accessToken');
+  if (app.accessToken !== accessToken) {
+    localStorage.setItem('accessToken', app.accessToken || '');
+  }
 }, DEBOUNCE_TIME);
 
 const configStore = (history) => {
