@@ -36,10 +36,12 @@ const Card = () => {
   const item = useSelector(blogItemSelector(id));
 
   const onSubmit = useCallback(
-    (newItem) => {
-      dispatch(blogUpdate(id, newItem));
+    (formData) => {
+      // TODO: form data doesn't have toDto() method
+      item.update(formData);
+      dispatch(blogUpdate(id, item));
     },
-    [id, dispatch]
+    [ dispatch, id, item]
   );
 
   useEffect(() => {
@@ -52,7 +54,7 @@ const Card = () => {
       {item && <h6 className='card-subtitle mb-2 text-muted'>{`Old date: ${item.year}-${item.month}-${item.day}`}</h6>}
       <div className='card'>
         <div className='card-body'>
-          <Form initialData={item} inputs={inputs} onSubmit={onSubmit} />
+          <Form initialData={item} inputs={inputs} onSubmit={onSubmit}/>
         </div>
       </div>
     </Page>

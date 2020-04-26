@@ -6,8 +6,7 @@ import { Career } from '../model/career.model';
 
 @Injectable()
 export class CareerService {
-  constructor(@Inject(CAREER_MODEL) private readonly careerModel: Model<Career>) {
-  }
+  constructor(@Inject(CAREER_MODEL) private readonly careerModel: Model<Career>) {}
 
   async create(dto: CreateCareerDto): Promise<Career> {
     const record = new this.careerModel(dto);
@@ -15,7 +14,7 @@ export class CareerService {
   }
 
   async getAll() {
-    return await this.careerModel.find({}).exec();
+    return await this.careerModel.find({}).sort({ startDate: 'desc' }).exec();
   }
 
   async getById(id: string) {
