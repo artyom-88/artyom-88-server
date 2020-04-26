@@ -1,6 +1,5 @@
  This project contains Back-end sources in development state for [artyom-ganev.github.io](https://artyom-ganev.github.io) site.
- 
- App is deployed on Heroku [here](https://artyom-ganev-node.herokuapp.com)  
+   
 - - - -
 **Made with:**
 * [axios](https://github.com/axios/axios)
