@@ -30,7 +30,7 @@
     "prettier": "2.0.5",
     "react-scripts": "3.4.1",
     "rimraf": "3.0.2",
-    "sass": "1.26.8"
+    "sass": "1.26.9"
   },
   "scripts": {
     "prebuild": "rimraf build",
