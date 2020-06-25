@@ -9,7 +9,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "postinstall": "npm run build",
+    "postinstall": "yarn run build",
     "build": "nest build",
     "start": "nest start",
     "start:dev": "nest start --watch",
