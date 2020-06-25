@@ -32,9 +32,12 @@
     "rimraf": "3.0.2",
     "sass": "1.26.9"
   },
+  "resolutions": {
+    "**/**/yargs-parser": "^18.1.2"
+  },
   "scripts": {
     "prebuild": "rimraf build",
-    "postinstall": "npm run build",
+    "postinstall": "yarn run build",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
