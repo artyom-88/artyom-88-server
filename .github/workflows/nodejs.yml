@@ -14,18 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-        name: Install Node
+        name: Install node
         with:
           node-version: '12'
-      - uses: borales/actions-yarn@v2.0.0
-        name: Install dependencies
-        with:
-          cmd: install --frozen-lockfile
-      - uses: borales/actions-yarn@v2.0.0
-        name: Run tests
-        with:
-          cmd: test
-      - uses: borales/actions-yarn@v2.0.0
-        name: Run build
-        with:
-          cmd: build
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run tests
+        run: yarn test
+      - name: Run build
+        run: yarn build
