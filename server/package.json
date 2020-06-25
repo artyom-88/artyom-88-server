@@ -35,7 +35,6 @@
     "passport-jwt": "4.0.0",
     "passport-local": "1.0.0",
     "reflect-metadata": "0.1.13",
-    "rimraf": "3.0.2",
     "rxjs": "6.5.5"
   },
   "devDependencies": {
@@ -59,6 +58,7 @@
     "jest": "25.5.4",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",
+    "rimraf": "3.0.2",
     "supertest": "4.0.2",
     "ts-jest": "25.5.1",
     "ts-loader": "7.0.5",
