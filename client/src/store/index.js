@@ -1,5 +1,4 @@
 import { debounce } from 'debounce';
-import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
@@ -21,10 +20,10 @@ const onStateChange = debounce(() => {
   }
 }, DEBOUNCE_TIME);
 
-const configStore = (history) => {
+const configStore = () => {
   if (!store) {
     // to avoid multiple store creation
-    const middlewareEnhancer = applyMiddleware(sagaMiddleware, routerMiddleware(history));
+    const middlewareEnhancer = applyMiddleware(sagaMiddleware);
 
     store = createStore(reducers, persistedState, composeWithDevTools(middlewareEnhancer));
 
@@ -36,4 +35,4 @@ const configStore = (history) => {
   return store;
 };
 
-export default configStore;
+export default configStore();

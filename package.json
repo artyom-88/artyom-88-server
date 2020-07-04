@@ -18,13 +18,13 @@
     "client:build": "cd ./client && yarn run build",
     "client:install": "cd ./client && yarn install",
     "client:start": "cd ./client && yarn run start",
-    "install": "yarn run client:install && yarn run server:install",
     "server:install": "cd ./server && yarn install",
     "server:build": "cd ./server && yarn run build",
     "server:prod": "cd ./server && yarn run start:prod",
     "server:start": "cd ./server && yarn run start",
     "server:start:dev": "cd ./server && yarn run start:dev",
     "server:test": "cd ./server && yarn run test",
-    "test": "yarn run server:test"
+    "test": "yarn run server:test",
+    "postinstall": "yarn run client:install && yarn run server:install"
   }
 }
