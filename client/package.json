@@ -28,7 +28,7 @@
     "react-scripts": "3.4.1",
     "redux-devtools-extension": "2.13.8",
     "rimraf": "3.0.2",
-    "sass": "1.26.9"
+    "sass": "1.26.11"
   },
   "resolutions": {
     "**/**/yargs-parser": "^18.1.2"
