@@ -1,8 +1,8 @@
 import { Inject, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { BLOG_MODEL } from '../const';
-import { CreateBlogDto } from '../dto/create-blog.dto';
-import { Blog } from '../model/blog.model';
+import { BLOG_MODEL } from '../common/constants';
+import { CreateBlogDto } from './dto/create-blog.dto';
+import { Blog } from './entities/blog.model';
 
 @Injectable()
 export class BlogService {

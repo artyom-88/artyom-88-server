@@ -1,11 +1,11 @@
 import { Connection } from 'mongoose';
-import { CAREER_MODEL } from '../const';
-import { CareerModel } from '../model/career.model';
+import { CAREER_MODEL } from '../common/constants';
+import { CareerModel } from './entities/career.model';
 
 export const careerProviders = [
   {
     provide: CAREER_MODEL,
     useFactory: (connection: Connection) => connection.model(CAREER_MODEL, CareerModel),
-    inject: ['DATABASE_CONNECTION']
-  }
+    inject: ['DATABASE_CONNECTION'],
+  },
 ];
