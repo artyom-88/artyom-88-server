@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { CLIENT_BUILD_PATH } from './common/constants';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
 import { BlogModule } from './blog/blog.module';
@@ -12,7 +12,7 @@ import { UserModule } from './user/user.module';
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
-      rootPath: CLIENT_BUILD_PATH,
+      rootPath: join(__dirname, '../../../client/build'),
     }),
     AuthModule,
     BlogModule,

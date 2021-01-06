@@ -1,11 +1,3 @@
-import { join } from 'path';
-
-export const CLIENT_BUILD_PATH = join(__dirname, '../../../client/build');
-
-console.log('__dirname:', __dirname);
-
-console.log('Client static files path:', CLIENT_BUILD_PATH);
-
 export const BLOG_MODEL = 'BLOG_MODEL';
 export const CAREER_MODEL = 'CAREER_MODEL';
 export const USER_MODEL = 'USER_MODEL';
