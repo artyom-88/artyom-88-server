@@ -1,6 +1,8 @@
 import { join } from 'path';
 
-export const CLIENT_BUILD_PATH = join(__dirname, '../../../client/build');
+export const CLIENT_BUILD_PATH = join(__dirname, '../../../../client/build');
+
+console.log('Client static files path:', CLIENT_BUILD_PATH);
 
 export const ENV_FILE_PATH = '.env';
 
