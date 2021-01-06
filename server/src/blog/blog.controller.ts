@@ -1,11 +1,10 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { CreateBlogDto } from '../dto/create-blog.dto';
-import { BlogService } from '../service/blog.service';
+import { CreateBlogDto } from './dto/create-blog.dto';
+import { BlogService } from './blog.service';
 
 @Controller('api/blog')
 export class BlogController {
-  constructor(private readonly blogService: BlogService) {
-  }
+  constructor(private readonly blogService: BlogService) {}
 
   @Post()
   async create(@Body() dto: CreateBlogDto) {

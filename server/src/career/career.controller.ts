@@ -1,11 +1,10 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateCareerDto } from '../dto/create-career.dto';
-import { CareerService } from '../service/career.service';
+import { CreateCareerDto } from './dto/create-career.dto';
+import { CareerService } from './career.service';
 
 @Controller('api/career')
 export class CareerController {
-  constructor(private readonly careerService: CareerService) {
-  }
+  constructor(private readonly careerService: CareerService) {}
 
   @Post()
   async create(@Body() dto: CreateCareerDto) {
