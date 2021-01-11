@@ -647,9 +647,9 @@
     jsonwebtoken "8.5.1"
 
 "@nestjs/mongoose@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-7.2.0.tgz#173528803055c48d58ff3531630bb57464131890"
-  integrity sha512-EYlY/MPcVz9t5gWt1Gz0/wGi0m6BqeNuVw548P7glOqguCKE+Qy/tI/RTJX0Fo9PnSnF4dj3dOWkfDwT237vSg==
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-7.2.1.tgz#2cd8cb001d2365104a69972c073c12a9d26f2d73"
+  integrity sha512-KFpWwmnl+Uv5c1TceymAsclI8afXaT7TJfTFUCj/vzhbB97ZSX3eQb4mIeQl6WdqAGGNuOUFCVy8/Phk2w541A==
 
 "@nestjs/passport@^7.1.5":
   version "7.1.5"
