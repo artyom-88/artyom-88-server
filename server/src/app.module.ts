@@ -12,7 +12,7 @@ import { UserModule } from './user/user.module';
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../../client/build'),
+      rootPath: join(__dirname, '../../client/build'),
     }),
     AuthModule,
     BlogModule,
