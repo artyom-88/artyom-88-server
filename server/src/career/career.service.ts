@@ -9,9 +9,9 @@ export class CareerService {
   constructor(@InjectModel(Career.name) private readonly careerModel: Model<Career>) {
   }
 
-  async create(dto: CreateCareerDto): Promise<Career> {
-    const record = new this.careerModel(dto);
-    return record.save();
+  async create(createCareerDto: CreateCareerDto): Promise<Career> {
+    const career = new this.careerModel(createCareerDto);
+    return career.save();
   }
 
   async getAll(): Promise<Career[]> {
@@ -19,15 +19,15 @@ export class CareerService {
   }
 
   async getById(id: string): Promise<Career> {
-    let record;
+    let career;
     try {
-      record = await this.careerModel.findById(id).exec();
+      career = await this.careerModel.findById(id).exec();
     } catch (error) {
       throw new NotFoundException('Could not find career record.');
     }
-    if (!record) {
+    if (!career) {
       throw new NotFoundException('Could not find career record.');
     }
-    return record;
+    return career;
   }
 }

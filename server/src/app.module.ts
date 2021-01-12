@@ -17,7 +17,10 @@ console.log('rootPath', __dirname);
     ServeStaticModule.forRoot({
       rootPath: process.env.CLIENT_PATH || join(__dirname, '../../client/build'),
     }),
-    MongooseModule.forRoot(process.env.DB_URI),
+    MongooseModule.forRoot(process.env.DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }),
     AuthModule,
     BlogModule,
     CareerModule,
