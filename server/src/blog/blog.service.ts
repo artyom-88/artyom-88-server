@@ -1,12 +1,13 @@
-import { Inject, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { BLOG_MODEL } from '../common/constants';
 import { CreateBlogDto } from './dto/create-blog.dto';
-import { Blog } from './entities/blog.model';
+import { Blog } from './entities/blog.entity';
 
 @Injectable()
 export class BlogService {
-  constructor(@Inject(BLOG_MODEL) private readonly blogModel: Model<Blog>) {}
+  constructor(@InjectModel(Blog.name) private readonly blogModel: Model<Blog>) {
+  }
 
   async create(dto: CreateBlogDto): Promise<Blog> {
     console.log(`BlogService create(${JSON.stringify(dto, null, 1)})`);
@@ -24,11 +25,11 @@ export class BlogService {
     return this.getById(id);
   }
 
-  async getAll() {
+  async getAll(): Promise<Blog[]> {
     return await this.blogModel.find({}).sort({ date: 'desc' }).exec();
   }
 
-  async getById(id: string) {
+  async getById(id: string): Promise<Blog> {
     console.log(`BlogService getById(${id})`);
     let record;
     try {
