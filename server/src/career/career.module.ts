@@ -1,12 +1,20 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { CareerController } from './career.controller';
-import { careerProviders } from './career.providers';
 import { CareerService } from './career.service';
-import { DatabaseModule } from '../datatbase/database.module';
+import { Career, CareerSchema } from './entities/career.entity';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [
+    MongooseModule.forFeature([
+      {
+        name: Career.name,
+        schema: CareerSchema,
+      },
+    ]),
+  ],
   controllers: [CareerController],
-  providers: [CareerService, ...careerProviders],
+  providers: [CareerService],
 })
-export class CareerModule {}
+export class CareerModule {
+}

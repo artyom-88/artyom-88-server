@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AppController } from './app.controller';
@@ -8,11 +9,17 @@ import { BlogModule } from './blog/blog.module';
 import { CareerModule } from './career/career.module';
 import { UserModule } from './user/user.module';
 
+console.log('rootPath', __dirname);
+
 @Module({
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../client/build'),
+      rootPath: process.env.CLIENT_PATH || join(__dirname, '../../client/build'),
+    }),
+    MongooseModule.forRoot(process.env.DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     }),
     AuthModule,
     BlogModule,
@@ -22,4 +29,5 @@ import { UserModule } from './user/user.module';
   controllers: [AppController],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+}
