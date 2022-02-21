@@ -16,7 +16,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "root:audit": "yarn-audit-ci",
+    "root:audit": "yarn-audit-ci --high",
     "client:audit": "yarn workspace client client:audit",
     "client:build": "yarn workspace client build",
     "client:install": "yarn workspace client install",
@@ -58,7 +58,8 @@
     "webpack": "5.66.0"
   },
   "resolutions": {
-    "webpack": "5.66.0"
+    "webpack": "5.66.0",
+    "nth-check": ">=2.0.1"
   },
   "lint-staged": {
     "src/**/*.{scss,css,json,yml,html}": [
