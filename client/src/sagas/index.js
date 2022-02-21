@@ -23,6 +23,7 @@ import {
 import { APP_AUTH, APP_USER, BLOG_CREATE, BLOG_LOAD, BLOG_LOAD_LIST, BLOG_UPDATE } from '../actions';
 import { auth, createBlog, loadBlog, loadBlogList, updateBlog, user } from '../api';
 import { MSG } from '../const';
+import { blogItemSelector } from '../selectors';
 
 function* appAuth({ payload }) {
   try {
@@ -85,14 +86,11 @@ function* blogLoad({ payload }) {
 function* blogUpdate({ payload }) {
   try {
     yield put(blogUpdateRequest());
-    const response = yield call(updateBlog, payload.id, payload.item);
-    if (response.status === 200) {
-      yield put(blogUpdateSucceeded(response.data));
-    } else {
-      yield put(blogUpdateFailed());
-    }
+    const { id, item } = payload;
+    const response = yield call(updateBlog, id, item);
+    yield put(blogUpdateSucceeded(response.data));
   } catch (e) {
-    yield put(blogUpdateFailed());
+    yield put(blogUpdateFailed(e));
   }
 }
 

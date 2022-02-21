@@ -27,7 +27,6 @@ class Blog {
   toDto() {
     // TODO: fix problem with new date
     return {
-      _id: this.id,
       title: this.title,
       date: momentToString(this.date),
       link: this.link,

@@ -3,6 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
 
+const DEFAULT_PORT = 3000;
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors();
@@ -16,8 +18,10 @@ async function bootstrap() {
       transformerPackage: require('@nestjs/class-transformer'),
     })
   );
-  await app.listen(process.env.PORT || 3000);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  const port = process.env.APP_PORT || DEFAULT_PORT;
+  await app.listen(port);
+  const url = await app.getUrl();
+  console.log(`Application is running on: ${url}`);
 }
 
 bootstrap();
