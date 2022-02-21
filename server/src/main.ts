@@ -11,6 +11,9 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
       transform: true,
       whitelist: true,
+      // https://github.com/nestjs/nest/issues/8562
+      validatorPackage: require('@nestjs/class-validator'),
+      transformerPackage: require('@nestjs/class-transformer'),
     })
   );
   await app.listen(process.env.PORT || 3000);
