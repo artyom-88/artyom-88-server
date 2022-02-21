@@ -11,18 +11,21 @@ export class BlogService {
 
   async create(createBlogDto: CreateBlogDto): Promise<Blog> {
     console.log(`BlogService create(${JSON.stringify(createBlogDto, null, 1)})`);
-    const blog = new this.blogModel(createBlogDto);
+    // TODO: temporary solution before dates migration
+    const date = new Date(createBlogDto.date);
+    const blog = new this.blogModel({ ...createBlogDto, date });
     return blog.save();
   }
 
   async update(id: string, updateBlogDto: UpdateBlogDto): Promise<Blog> {
     console.log(`BlogService update(${id}, ${JSON.stringify(updateBlogDto, null, 1)})`);
-    try {
-      await this.blogModel.updateOne({ _id: id }, updateBlogDto);
-    } catch (error) {
+    // TODO: temporary solution before dates migration
+    const date = new Date(updateBlogDto.date);
+    const blog = await this.blogModel.findByIdAndUpdate(id, { ...updateBlogDto, date }, { new: true });
+    if (!blog) {
       throw new InternalServerErrorException('Could not update blog record.');
     }
-    return this.getById(id);
+    return blog;
   }
 
   async getAll(): Promise<Blog[]> {

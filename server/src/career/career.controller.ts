@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateCareerDto } from './dto/create-career.dto';
 import { CareerService } from './career.service';
+import { CreateCareerDto } from './dto/create-career.dto';
 import { Career } from './entities/career.entity';
 
 @Controller('api/career')
