@@ -5,7 +5,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "server:audit": "yarn-audit-ci --high",
     "build": "nest build",
     "postinstall": "yarn build",
     "prebuild": "rimraf dist",
