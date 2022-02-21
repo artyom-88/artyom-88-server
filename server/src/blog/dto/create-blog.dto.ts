@@ -1,4 +1,4 @@
-import { IsString, IsDate } from 'class-validator';
+import { IsString } from '@nestjs/class-validator';
 
 export class CreateBlogDto {
   @IsString()
@@ -10,6 +10,9 @@ export class CreateBlogDto {
   @IsString()
   readonly linkCaption: string;
 
-  @IsDate()
-  readonly date: Date;
+  // @IsDate()
+  // readonly date: Date;
+  // TODO: temporary solution before dates migration
+  @IsString()
+  readonly date: string;
 }
