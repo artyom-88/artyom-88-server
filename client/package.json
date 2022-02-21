@@ -34,7 +34,6 @@
     "sass": "1.49.8"
   },
   "scripts": {
-    "client:audit": "yarn-audit-ci --high",
     "prebuild": "rimraf build",
     "postinstall": "yarn build",
     "start": "react-scripts start",
