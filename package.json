@@ -12,7 +12,7 @@
     "url": "git+https://github.com/Artyom-Ganev/artyom-ganev-node.git"
   },
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "scripts": {
     "client:build": "cd ./client && yarn run build",
