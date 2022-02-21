@@ -3,6 +3,7 @@
   "license": "GPL-3.0",
   "name": "artyom-ganev-node",
   "version": "1.0.0",
+  "private": true,
   "homepage": "http://artyom-ganev.github.io",
   "bugs": {
     "url": "https://github.com/Artyom-Ganev/artyom-ganev-node/issues"
@@ -12,19 +13,61 @@
     "url": "git+https://github.com/Artyom-Ganev/artyom-ganev-node.git"
   },
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "scripts": {
-    "client:build": "cd ./client && yarn run build",
-    "client:install": "cd ./client && yarn install",
-    "client:start": "cd ./client && yarn run start",
-    "server:install": "cd ./server && yarn install",
-    "server:build": "cd ./server && yarn run build",
-    "server:prod": "cd ./server && yarn run start:prod",
-    "server:start": "cd ./server && yarn run start",
-    "server:start:dev": "cd ./server && yarn run start:dev",
-    "server:test": "cd ./server && yarn run test",
-    "test": "yarn run server:test",
-    "postinstall": "yarn run client:install && yarn run server:install"
+    "root:audit": "yarn-audit-ci --high",
+    "client:audit": "yarn workspace client client:audit",
+    "client:build": "yarn workspace client build",
+    "client:install": "yarn workspace client install",
+    "client:start": "yarn workspace client start",
+    "postinstall": "yarn client:install && yarn server:install",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install",
+    "server:audit": "yarn workspace server server:audit",
+    "server:build": "yarn workspace server build",
+    "server:install": "yarn workspace server install",
+    "server:prod": "yarn workspace server start:prod",
+    "server:start": "yarn workspace server start",
+    "server:start:dev": "yarn workspace server start:dev",
+    "server:test": "yarn workspace server test",
+    "test": "yarn server:test"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.19",
+    "@typescript-eslint/parser": "5.12.0",
+    "eslint": "8.9.0",
+    "eslint-config-prettier": "8.4.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jest": "26.1.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "husky": "7.0.4",
+    "jest": "^27.4.3",
+    "lint-staged": "12.3.4",
+    "prettier": "2.5.1",
+    "rimraf": "3.0.2",
+    "typescript": "4.5.5",
+    "yarn-audit-ci": "1.2.0",
+    "webpack": "5.66.0"
+  },
+  "resolutions": {
+    "webpack": "5.66.0",
+    "nth-check": ">=2.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{scss,css,json,yml,html}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
