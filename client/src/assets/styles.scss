@@ -21,9 +21,11 @@ body {
   width: 100%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: $darkBlueColor;
-  margin: 0
+  margin: 0;
 }
 
 .flexBox {
@@ -57,7 +59,6 @@ h1, h2, h3 {
 
 .alignItemsCenter {
   align-items: center;
-
 }
 
 .alignItemsBaseline {

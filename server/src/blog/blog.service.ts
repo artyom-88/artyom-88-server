@@ -7,8 +7,7 @@ import { Blog } from './entities/blog.entity';
 
 @Injectable()
 export class BlogService {
-  constructor(@InjectModel(Blog.name) private readonly blogModel: Model<Blog>) {
-  }
+  constructor(@InjectModel(Blog.name) private readonly blogModel: Model<Blog>) {}
 
   async create(createBlogDto: CreateBlogDto): Promise<Blog> {
     console.log(`BlogService create(${JSON.stringify(createBlogDto, null, 1)})`);

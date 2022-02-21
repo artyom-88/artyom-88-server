@@ -5,8 +5,7 @@ import { User } from './entities/user.entity';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {
-  }
+  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {}
 
   async find(username: string): Promise<User | undefined> {
     let users;
