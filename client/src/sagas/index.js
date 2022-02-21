@@ -23,7 +23,6 @@ import {
 import { APP_AUTH, APP_USER, BLOG_CREATE, BLOG_LOAD, BLOG_LOAD_LIST, BLOG_UPDATE } from '../actions';
 import { auth, createBlog, loadBlog, loadBlogList, updateBlog, user } from '../api';
 import { MSG } from '../const';
-import { blogItemSelector } from '../selectors';
 
 function* appAuth({ payload }) {
   try {
