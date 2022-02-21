@@ -1,4 +1,4 @@
-import { IsString, IsDate } from 'class-validator';
+import { IsString, IsDate } from '@nestjs/class-validator';
 
 export class CreateCareerDto {
   @IsString()
