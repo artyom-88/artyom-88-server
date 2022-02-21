@@ -6,8 +6,7 @@ import { Career } from './entities/career.entity';
 
 @Injectable()
 export class CareerService {
-  constructor(@InjectModel(Career.name) private readonly careerModel: Model<Career>) {
-  }
+  constructor(@InjectModel(Career.name) private readonly careerModel: Model<Career>) {}
 
   async create(createCareerDto: CreateCareerDto): Promise<Career> {
     const career = new this.careerModel(createCareerDto);

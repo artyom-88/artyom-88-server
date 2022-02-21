@@ -1,0 +1,71 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "mocha": true,
+    "jest/globals": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:import/typescript", "plugin:prettier/recommended"],
+  "root": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jest", "import", "prettier"],
+  "settings": {
+    "import/extensions": [".ts", ".tsx"],
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "endOfLine": "lf",
+        "jsxSingleQuote": true,
+        "printWidth": 120,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "internal", "unknown", "external", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "redux*",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "*.scss",
+            "group": "index",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
