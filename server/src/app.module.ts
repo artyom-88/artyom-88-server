@@ -1,8 +1,8 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
 import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
 import { BlogModule } from './blog/blog.module';
@@ -29,5 +29,4 @@ console.log('rootPath', __dirname);
   controllers: [AppController],
   providers: [],
 })
-export class AppModule {
-}
+export class AppModule {}

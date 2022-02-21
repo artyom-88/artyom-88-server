@@ -34,20 +34,20 @@ const ListEditor = ({ onCancel, onSave }) => {
       <form onSubmit={save}>
         <div className='row'>
           <div className='col-4'>
-            <TextInput field='title' onChange={onChange} required={true} value={form.title}/>
+            <TextInput field='title' onChange={onChange} required={true} value={form.title} />
           </div>
           <div className='col-3'>
-            <DateInput field='date' onChange={onChange} required={true} value={form.date}/>
+            <DateInput field='date' onChange={onChange} required={true} value={form.date} />
           </div>
           <div className='col-3'>
-            <TextInput field='link' onChange={onChange} value={form.link}/>
+            <TextInput field='link' onChange={onChange} value={form.link} />
           </div>
           <div className='col-2'>
-            <TextInput field='linkCaption' onChange={onChange} value={form.linkCaption}/>
+            <TextInput field='linkCaption' onChange={onChange} value={form.linkCaption} />
           </div>
         </div>
         <div className='flexBox justifyContentEnd'>
-          <input className={`btn btn-success ${styles.button}`} type='submit' value='Save'/>
+          <input className={`btn btn-success ${styles.button}`} type='submit' value='Save' />
           <button className={`btn btn-danger ${styles.button}`} type='button' onClick={cancel}>
             Cancel
           </button>

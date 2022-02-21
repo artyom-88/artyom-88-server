@@ -16,5 +16,4 @@ import { Career, CareerSchema } from './entities/career.entity';
   controllers: [CareerController],
   providers: [CareerService],
 })
-export class CareerModule {
-}
+export class CareerModule {}

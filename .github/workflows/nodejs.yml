@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,5 +18,11 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Run audit for root
+        run: yarn root:audit
+      - name: Run audit for client
+        run: yarn client:audit
+      - name: Run audit for server
+        run: yarn server:audit
       - name: Run tests
         run: yarn test
