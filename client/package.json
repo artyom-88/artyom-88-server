@@ -27,7 +27,7 @@
     "@types/react-router-dom": "5.3.3",
     "autoprefixer": "10.4.2",
     "node-sass": "7.0.1",
-    "postcss": "8.4.6",
+    "postcss": "8.2.13",
     "react-scripts": "5.0.0",
     "redux-devtools-extension": "2.13.9",
     "rimraf": "3.0.2",
