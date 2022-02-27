@@ -1,10 +1,8 @@
-// TODO: add encryption or SSL
-import axios from 'axios';
-import { API_PATH } from '../common/common.constants';
+import api from 'src/client/app/api.client';
 
 export const auth = async (username, password) =>
-  axios.post(
-    `${API_PATH}/auth`,
+  api.post(
+    `auth`,
     {
       username,
       password,
@@ -17,7 +15,7 @@ export const auth = async (username, password) =>
   );
 
 export const user = async (accessToken) =>
-  axios.get(`${API_PATH}/user`, {
+  api.get('user', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

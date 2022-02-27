@@ -1,8 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { IBlog } from 'src/common/types/blog.types';
 
 @Schema()
-export class Blog extends Document {
+export class Blog extends Document implements IBlog {
   @Prop({ required: true, type: String })
   readonly title: string;
 

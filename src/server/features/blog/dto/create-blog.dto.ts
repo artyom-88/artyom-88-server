@@ -1,6 +1,7 @@
 import { IsString } from '@nestjs/class-validator';
+import { IBlogDTO } from 'src/common/types/blog.types';
 
-export class CreateBlogDto {
+export class CreateBlogDto implements IBlogDTO {
   @IsString()
   readonly title: string;
 

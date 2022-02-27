@@ -1,7 +1,13 @@
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
+import BlogList from 'src/client/features/blog/components/BlogList';
 
-const BlogList: FC = () => {
-  return <h1>Blog</h1>;
+const Blogs: FC = (): ReactElement => {
+  return (
+    <div>
+      <h1>Blog</h1>
+      <BlogList />
+    </div>
+  );
 };
 
-export default BlogList;
+export default Blogs;

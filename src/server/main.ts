@@ -18,7 +18,7 @@ async function bootstrap() {
       transformerPackage: require('@nestjs/class-transformer'),
     })
   );
-  const port = process.env.APP_PORT || DEFAULT_PORT;
+  const port = process.env.SERVER_PORT || DEFAULT_PORT;
   await app.listen(port);
   const url = await app.getUrl();
   console.log(`Application is running on: ${url}`);
