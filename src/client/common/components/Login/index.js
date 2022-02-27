@@ -39,7 +39,7 @@ const Login = () => {
   }, [dispatch]);
 
   return (
-    <Page className='flexBox flexColumn' title='Login Page'>
+    <Page className='ag-flexbox flexColumn' title='Login Page'>
       {authorized ? (
         <>
           <div>You are authorized</div>

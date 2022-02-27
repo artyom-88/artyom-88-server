@@ -46,7 +46,7 @@ const ListEditor = ({ onCancel, onSave }) => {
             <TextInput field='linkCaption' onChange={onChange} value={form.linkCaption} />
           </div>
         </div>
-        <div className='flexBox justifyContentEnd'>
+        <div className='ag-flexbox justifyContentEnd'>
           <input className={`btn btn-success ${styles.button}`} type='submit' value='Save' />
           <button className={`btn btn-danger ${styles.button}`} type='button' onClick={cancel}>
             Cancel

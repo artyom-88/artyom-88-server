@@ -27,7 +27,7 @@ const Form = ({ className, initialData, inputs, onSubmit }) => {
         );
       })}
       <div className='row'>
-        <div className={`flexBox justifyContentCenter col-12 ${styles.buttons}`}>
+        <div className={`ag-flexbox justifyContentCenter col-12 ${styles.buttons}`}>
           {hasChanges && (
             <>
               <input

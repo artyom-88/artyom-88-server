@@ -9,9 +9,9 @@ import Menu from '../Menu';
 import NotFound from '../NotFound';
 
 const Routes = () => (
-  <div className='flexBox flexColumn'>
+  <div className='ag-flexbox flexColumn'>
     <Menu />
-    <div className='flexBox flexColumn flexGrow-1'>
+    <div className='ag-flexbox flexColumn flexGrow-1'>
       <Switch>
         <Redirect from='/main' to='/' />
         <Route exact={true} path='/' component={Main} />

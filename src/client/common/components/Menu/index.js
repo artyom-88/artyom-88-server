@@ -20,7 +20,7 @@ const renderItems = () =>
  * Navigation menu component
  */
 const Menu = () => (
-  <nav className={`flexBox ${styles.container}`} id='menu'>
+  <nav className={`ag-flexbox ${styles.container}`} id='menu'>
     <ul className='nav'>{renderItems()}</ul>
   </nav>
 );

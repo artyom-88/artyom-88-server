@@ -17,17 +17,19 @@
     "yarn": "1.22.x"
   },
   "scripts": {
-    "client:build": "react-scripts build",
-    "build": "client:build && server:build",
-    "client:start": "react-scripts start",
+    "build": "yarn client:build && yarn server:build",
+    "client:build": "next build",
+    "client:start": "next start",
+    "client:dev": "next dev",
     "prebuild": "rimraf build dist",
     "precommit": "lint-staged",
     "prepare": "husky install",
-    "server:build": "nest build",
-    "server:start": "nest start",
-    "server:start:debug": "nest start --debug --watch",
-    "server:start:dev": "nest start --watch",
-    "server:start:prod": "node dist/main.js"
+    "server:build": "nest build --path ./tsconfig.server.json",
+    "server:start": "nest start --path ./tsconfig.server.json",
+    "server:start:debug": "nest start --path ./tsconfig.server.json --debug --watch",
+    "server:start:dev": "nest start --path ./tsconfig.server.json --watch",
+    "server:start:prod": "node dist/server/main.js",
+    "test": "echo 'Tests are not implemented yet'"
   },
   "dependencies": {
     "@nestjs/class-transformer": "^0.4.0",
@@ -46,6 +48,7 @@
     "moment": "^2.29.1",
     "mongoose": "^6.2.3",
     "next": "^12.1.0",
+    "nest-next": "^9.6.0",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",

@@ -9,7 +9,7 @@ const App = () => {
   const { accessToken, authorized } = useSelector(appSelector, shallowEqual);
   const showLogin = !accessToken && !authorized;
   useAuth(accessToken, authorized);
-  return <div className='container-xl flexBox flexColumn flexGrow-1'>{showLogin ? <Login /> : <Routes />}</div>;
+  return <div className='container-xl ag-flexbox flexColumn flexGrow-1'>{showLogin ? <Login /> : <Routes />}</div>;
 };
 
 export default App;

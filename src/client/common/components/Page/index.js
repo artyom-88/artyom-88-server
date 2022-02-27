@@ -9,7 +9,7 @@ const Page = ({ className, title, children, buttons }) => {
   const { loading, error } = useSelector(appSelector, shallowEqual);
   return (
     <div className={`${styles.container} ${className}`}>
-      <div className='flexBox'>
+      <div className='ag-flex'>
         {title && <h1 className={styles.title}>{title}</h1>}
         {buttons}
       </div>
