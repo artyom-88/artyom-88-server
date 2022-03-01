@@ -1,4 +1,4 @@
-import { FC, ReactElement, useEffect, useState } from 'react';
+import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { IBlog } from 'src/common/types/blog.types';
 import { TEntity } from 'src/common/types/common.types';
@@ -9,7 +9,7 @@ const BlogList: FC = (): ReactElement => {
   const [blogList, setBlogList] = useRecoilState<TEntity<IBlog>[]>(blogListState);
   const [error, setError] = useState<string>('');
 
-  useEffect(() => {
+  const loadBlogList = useCallback(() => {
     blogListRequest()
       .then((response) => {
         setBlogList(response);
@@ -17,16 +17,21 @@ const BlogList: FC = (): ReactElement => {
       .catch((e: Error) => {
         setError(e.message);
       });
+  }, [setBlogList, setError]);
+
+  useEffect(() => {
+    loadBlogList();
     return () => {
       setBlogList([]);
     };
-  }, [setBlogList, setError]);
+  }, [loadBlogList, setBlogList]);
 
   if (error) return <div>Failed to load</div>;
   if (!blogList?.length) return <div>Loading...</div>;
 
   return (
     <>
+      <button onClick={loadBlogList}>Refresh</button>
       {blogList.map(({ _id, date, title, link, linkCaption }) => (
         <div key={_id} className='ag-flexbox'>
           <div>{date?.getFullYear()}</div>
