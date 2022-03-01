@@ -15,7 +15,7 @@ export class BlogController {
 
   @Get('/blog/:id')
   @Render('blog/[id]')
-  blog() {
+  blogPost() {
     return {};
   }
 

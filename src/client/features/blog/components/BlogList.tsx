@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { IBlog } from 'src/common/types/blog.types';
@@ -33,12 +34,14 @@ const BlogList: FC = (): ReactElement => {
     <>
       <button onClick={loadBlogList}>Refresh</button>
       {blogList.map(({ _id, date, title, link, linkCaption }) => (
-        <div key={_id} className='ag-flexbox'>
-          <div>{date?.getFullYear()}</div>
-          <div>{title}</div>
-          <div>{link}</div>
-          <div>{linkCaption}</div>
-        </div>
+        <Link key={_id} href={`/blog/${_id}`}>
+          <div className='ag-flexbox'>
+            <div>{date?.getFullYear()}</div>
+            <div>{title}</div>
+            <div>{link}</div>
+            <div>{linkCaption}</div>
+          </div>
+        </Link>
       ))}
     </>
   );

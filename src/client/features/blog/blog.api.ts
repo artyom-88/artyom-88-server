@@ -10,3 +10,11 @@ export const blogListRequest = async (): Promise<TEntity<IBlog>[]> => {
     date: new Date(item.date),
   }));
 };
+
+export const blogRequest = async (id: string): Promise<TEntity<IBlog>> => {
+  const { data }: AxiosResponse<TEntity<IBlogDTO>> = await apiClient.get(`blog/${id}`);
+  return {
+    ...data,
+    date: new Date(data.date),
+  };
+};

@@ -33,7 +33,6 @@ export class BlogService {
   }
 
   async getById(id: string): Promise<Blog> {
-    console.log(`BlogService getById(${id})`);
     let blog;
     try {
       blog = await this.blogModel.findById(id).exec();
