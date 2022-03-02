@@ -1,3 +1,4 @@
-client/build
+.next
+build
+dist
 node_modules/
-server/dist

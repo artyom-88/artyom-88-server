@@ -1,7 +1,9 @@
 *.log
 *.tmp
 .env
+.env.local
 .idea
+.next
 build
 coverage
 dist

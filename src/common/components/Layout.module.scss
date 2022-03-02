@@ -1,0 +1,22 @@
+$navHeight: 5vh;
+$footerHeight: 2vh;
+
+.nav {
+  position: fixed;
+  height: $navHeight;
+  &Link {
+    padding: 1em;
+  }
+}
+
+.main {
+  height: calc(100vh - #{$navHeight} - #{$footerHeight});
+  overflow-y: auto;
+  padding-top: $navHeight;
+}
+
+.footer {
+  height: $footerHeight;
+  position: fixed;
+  text-align: center;
+}
