@@ -1,7 +1,7 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { PORT } from 'src/common/constants/common.constants';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 import { AppModule } from './app/app.module';
 
@@ -18,8 +18,13 @@ async function bootstrap() {
       transformerPackage: require('@nestjs/class-transformer'),
     })
   );
+
+  const config = new DocumentBuilder().setTitle('The API').build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
   app.useGlobalInterceptors(new LoggingInterceptor());
-  await app.listen(PORT);
+  await app.listen(3000);
   const url = await app.getUrl();
   console.log(`Application is running on: ${url}`);
 }
