@@ -15,6 +15,7 @@
     "node": "14.x",
     "yarn": "1.22.x"
   },
+  "cacheDirectories": ["node_modules",".next/cache"],
   "scripts": {
     "build": "yarn client:build && yarn server:build",
     "client:build": "next build",
