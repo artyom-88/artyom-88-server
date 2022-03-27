@@ -16,6 +16,11 @@ const Home: FC = () => {
             <a>Career</a>
           </Link>
         </li>
+        <li>
+          <Link href='/api'>
+            <a>API</a>
+          </Link>
+        </li>
       </ul>
     </div>
   );

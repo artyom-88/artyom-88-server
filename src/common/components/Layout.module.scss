@@ -1,11 +1,12 @@
 $navHeight: 5vh;
 $footerHeight: 2vh;
+$smallPadding: 1em;
 
 .nav {
   position: fixed;
   height: $navHeight;
   &Link {
-    padding: 1em;
+    padding: $smallPadding;
   }
 }
 
@@ -13,6 +14,8 @@ $footerHeight: 2vh;
   height: calc(100vh - #{$navHeight} - #{$footerHeight});
   overflow-y: auto;
   padding-top: $navHeight;
+  padding-right: $smallPadding;
+  padding-left: $smallPadding;
 }
 
 .footer {

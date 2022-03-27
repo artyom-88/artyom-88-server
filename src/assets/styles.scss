@@ -6,7 +6,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   &:visited {
@@ -47,6 +47,10 @@ h3 {
 
 .ag-justifyContent_center {
   justify-content: center;
+}
+
+.ag-justifyContent_end {
+  justify-content: flex-end;
 }
 
 .ag-fullHeight {
