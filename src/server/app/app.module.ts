@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { RenderModule } from 'nest-next';
-import Next from 'next';
-import { isDev } from 'src/common/constants/common.constants';
+// import { RenderModule } from 'nest-next';
+// import Next from 'next';
+// import { isDev } from 'src/common/constants/common.constants';
 import { AuthModule } from '../features/auth/auth.module';
 import { BlogModule } from '../features/blog/blog.module';
 import { CareerModule } from '../features/career/career.module';
@@ -12,19 +12,28 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.DB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MongooseModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => {
+        const uri = configService.get('DB_URI');
+        return {
+          uri,
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        };
+      },
     }),
     AuthModule,
     BlogModule,
     CareerModule,
     UserModule,
-    RenderModule.forRootAsync(Next({ dev: isDev }), { viewsDir: null }),
+    // RenderModule.forRootAsync(Next({ dev: isDev }), { viewsDir: null }),
   ],
   controllers: [AppController],
   providers: [],
-  exports: [ConfigModule],
+  exports: [],
 })
 export class AppModule {}
