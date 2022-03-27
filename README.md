@@ -1,25 +1,28 @@
-This project contains Back-end sources in development state for [artyom-ganev.github.io](https://artyom-ganev.github.io) site.
+[![codebeat badge](https://codebeat.co/badges/7921ca93-8957-45bd-b2e9-ebe9f95bcf7c)](https://codebeat.co/projects/github-com-artyom-88-artemganev-be-develop)
+
+This project contains sources of BE app for [artemganev.site](https://artemagenv.site)
 
 ---
 
 **Made with:**
 
-- [axios](https://github.com/axios/axios)
-- [bootstrap css](https://getbootstrap.com)
-- [Eslint](https://eslint.org)
+- [ESLint](https://eslint.org)
 - [Heroku](https://www.heroku.com)
-- [husky](https://github.com/typicode/husky)
 - [Jest](https://jestjs.io/)
-- [lint-staged](https://github.com/okonet/lint-staged)
 - [Moment.js](https://momentjs.com)
 - [Mongo DB](https://www.mongodb.com)
-- [mongoose](https://mongoosejs.com)
 - [NestJS](https://nestjs.com)
-- [NPM](https://www.npmjs.com)
-- [passport.js](http://www.passportjs.org)
+- [Next.js](https://nextjs.org)
 - [Prettier](https://prettier.io)
 - [ReactJS](https://reactjs.org)
-- [react-scripts](https://www.npmjs.com/package/react-scripts)
 - [Redux](https://redux.js.org)
 - [Sass](https://sass-lang.com)
-- [TypeScript](https://www.typescriptlang.org)
+- [Swagger](https://swagger.io)
+- [Type Script](https://www.typescriptlang.org)
+- [axios](https://github.com/axios/axios)
+- [husky](https://github.com/typicode/husky)
+- [lint-staged](https://github.com/okonet/lint-staged)
+- [mongoose](https://mongoosejs.com)
+- [passport.js](http://www.passportjs.org)
+- [recoil](https://recoiljs.org)
+- [yarn](https://yarnpkg.com)
