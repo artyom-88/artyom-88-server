@@ -2,6 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { PORT } from 'src/common/constants/common.constants';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 import { AppModule } from './app/app.module';
 
@@ -24,7 +25,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   app.useGlobalInterceptors(new LoggingInterceptor());
-  await app.listen(3000);
+  await app.listen(PORT);
   const url = await app.getUrl();
   console.log(`Application is running on: ${url}`);
 }

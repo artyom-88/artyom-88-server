@@ -3,13 +3,10 @@
   "license": "GPL-3.0",
   "name": "artyom-ganev-node",
   "version": "1.0.0",
-  "homepage": "http://artyom-ganev.github.io",
-  "bugs": {
-    "url": "https://github.com/Artyom-Ganev/artyom-ganev-node/issues"
-  },
+  "homepage": "https://artemganev.site",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Artyom-Ganev/artyom-ganev-node.git"
+    "url": "git+https://github.com/artyom-88/artyom-ganev-node.git"
   },
   "engines": {
     "node": "14.x",
