@@ -8,7 +8,13 @@ import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.enableCors();
+  app.enableCors({
+    origin: [
+      /https:\/\/artemganev.site*/,
+      /https:\/\/artyom-ganev-node-test.herokuapp.com*/,
+      /https?:\/\/localhost:[\d]{4}/,
+    ],
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       forbidNonWhitelisted: true,
