@@ -1,15 +1,12 @@
 {
-  "author": "Artyom Ganev",
+  "author": "Artem Ganev",
   "license": "GPL-3.0",
-  "name": "artyom-ganev-node",
+  "name": "artemganev-be",
   "version": "1.0.0",
-  "homepage": "http://artyom-ganev.github.io",
-  "bugs": {
-    "url": "https://github.com/Artyom-Ganev/artyom-ganev-node/issues"
-  },
+  "homepage": "https://artemganev.site",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Artyom-Ganev/artyom-ganev-node.git"
+    "url": "git+https://github.com/artyom-88/artemganev-be.git"
   },
   "engines": {
     "node": "14.x",
@@ -59,7 +56,7 @@
     "react": "^17.0.2",
     "react-datepicker": "^4.7.0",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.1",
+    "react-router-dom": "^5.3.0",
     "recoil": "^0.6.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.4",
@@ -110,7 +107,9 @@
     "yarn-audit-ci": "^1.2.0"
   },
   "resolutions": {
-    "nth-check": ">=2.0.1"
+    "node-forge": ">=1.3.0",
+    "nth-check": ">=2.0.1",
+    "minimist": ">=1.2.6"
   },
   "lint-staged": {
     "src/**/*.{scss,css,json,yml,html}": [
