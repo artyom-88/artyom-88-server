@@ -16,6 +16,11 @@ const Layout = ({ children }: PropsWithChildren<unknown>): ReactElement => (
       <Link href='/career'>
         <a className={styles.navLink}>Career</a>
       </Link>
+      <Link href='/api'>
+        <a className={styles.navLink} target='_blank' rel='noopener noreferrer'>
+          API
+        </a>
+      </Link>
     </nav>
     <main className={styles.main}>{children}</main>
     <footer className={`ag-fullWidth ${styles.footer}`}>{rightsText}</footer>

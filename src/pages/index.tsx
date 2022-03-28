@@ -18,7 +18,9 @@ const Home: FC = () => {
         </li>
         <li>
           <Link href='/api'>
-            <a>API</a>
+            <a target='_blank' rel='noopener noreferrer'>
+              API
+            </a>
           </Link>
         </li>
       </ul>
