@@ -82,7 +82,7 @@
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.31",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
