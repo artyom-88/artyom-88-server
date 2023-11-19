@@ -32,6 +32,6 @@ import { UiModule } from './ui.module';
   ],
   controllers: [AppController],
   providers: [],
-  exports: [],
+  exports: [ConfigModule],
 })
 export class AppModule {}
