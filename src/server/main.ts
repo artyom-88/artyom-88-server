@@ -3,8 +3,9 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { PORT } from 'src/common/constants/common.constants';
-import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
-import { AppModule } from './app/app.module';
+import { LoggingInterceptor } from 'src/server/app/logging-interceptor';
+
+import { AppModule } from './app/app-module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -36,4 +37,4 @@ async function bootstrap() {
   console.log(`Application is running on: ${url}`);
 }
 
-bootstrap();
+void bootstrap();

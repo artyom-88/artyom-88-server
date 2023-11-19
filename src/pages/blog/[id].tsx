@@ -1,35 +1,25 @@
-import { useRouter } from 'next/router';
-import { FC, useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { blogRequest } from 'src/client/features/blog/blog.api';
-import { blogItemState } from 'src/client/features/blog/blog.atoms';
-import { IBlog } from 'src/common/types/blog.types';
-import { TEntity } from 'src/common/types/common.types';
+import type { JSX } from 'react';
 
-const Blog: FC = () => {
-  const [blog, setBlog] = useRecoilState<TEntity<IBlog> | null>(blogItemState);
-  const [error, setError] = useState<string>('');
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
+import { blogRequest } from 'src/client/features/blog/blog-api';
+import type { IBlog } from 'src/common/types/blog.types';
+import type { TEntity } from 'src/common/types/common.types';
+
+import { BLOG_ID_QUERY_KEY } from '../../client/features/blog/blog-constants';
+
+const Blog = (): JSX.Element => {
   const router = useRouter();
   const id = router.query?.id as string;
-
-  useEffect(() => {
-    if (id) {
-      blogRequest(id)
-        .then((response) => {
-          setBlog(response);
-        })
-        .catch((e: Error) => {
-          setError(e.message);
-        });
-      return () => {
-        setBlog(null);
-      };
-    }
-  }, [id, setBlog, setBlog]);
+  const { data, error } = useQuery<TEntity<IBlog>>({
+    queryFn: () => blogRequest(id),
+    queryKey: [BLOG_ID_QUERY_KEY, id],
+    refetchOnMount: false,
+  });
+  const blog = data ?? ({} as TEntity<IBlog>);
 
   if (error) return <div>Failed to load</div>;
   if (!blog) return <div>Loading...</div>;
-
   return (
     <>
       <h1>{blog.title}</h1>

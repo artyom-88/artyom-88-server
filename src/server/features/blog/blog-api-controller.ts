@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
-import { BlogService } from './blog.service';
-import { CreateBlogDto } from './dto/create-blog.dto';
-import { Blog } from './entities/blog.entity';
+
+import type { CreateBlogDto } from './blog-models';
+import type { Blog } from './blog-schema';
+import { BlogService } from './blog-service';
 
 @Controller()
 export class BlogApiController {

@@ -12,7 +12,8 @@
     "eslint:recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
   "root": true,
   "parserOptions": {
@@ -28,7 +29,8 @@
     "react-hooks",
     "jest",
     "import",
-    "prettier"
+    "prettier",
+    "@tanstack/query"
   ],
   "settings": {
     "import/extensions": [".ts", ".tsx"],
@@ -38,6 +40,26 @@
     }
   },
   "rules": {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "groups": [["builtin", "external"], ["internal", "unknown", "object"], ["parent"], ["sibling", "index"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"]
+      }
+    ],
+    "no-unused-vars": "off",
     "prettier/prettier": [
       "error",
       {
@@ -49,39 +71,7 @@
         "trailingComma": "es5"
       }
     ],
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "internal", "unknown", "external", "parent", "sibling", "index"],
-        "pathGroups": [
-          {
-            "pattern": "react*",
-            "group": "builtin",
-            "position": "before"
-          },
-          {
-            "pattern": "redux*",
-            "group": "builtin",
-            "position": "before"
-          },
-          {
-            "pattern": "*.scss",
-            "group": "index",
-            "position": "after"
-          }
-        ],
-        "newlines-between": "never",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
-    "@typescript-eslint/interface-name-prefix": 0,
-    "@typescript-eslint/no-non-null-assertion": 0,
-    "@typescript-eslint/no-unused-vars": 2,
-    "no-unused-vars": 0,
-    "react/jsx-uses-react": 0,
-    "react/react-in-jsx-scope": 0
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }

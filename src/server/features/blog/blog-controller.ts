@@ -1,5 +1,5 @@
 import { Controller, Get, Render, UseInterceptors } from '@nestjs/common';
-import { ParamsInterceptor } from 'src/common/interceptors/params.interceptor';
+import { ParamsInterceptor } from 'src/server/common/params/params-interceptor';
 
 @Controller()
 export class BlogController {

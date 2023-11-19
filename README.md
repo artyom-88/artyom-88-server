@@ -24,5 +24,3 @@ This project contains sources of BE app for [artemganev.site](https://artemagenv
 - [lint-staged](https://github.com/okonet/lint-staged)
 - [mongoose](https://mongoosejs.com)
 - [passport.js](http://www.passportjs.org)
-- [recoil](https://recoiljs.org)
-- [yarn](https://yarnpkg.com)

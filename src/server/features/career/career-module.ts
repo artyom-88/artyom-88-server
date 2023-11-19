@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CareerController } from './career.controller';
-import { CareerService } from './career.service';
+
+import { CareerController } from './career-controller';
+import { CareerService } from './career-service';
 import { Career, CareerSchema } from './entities/career.entity';
 
 @Module({
