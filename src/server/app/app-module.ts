@@ -19,8 +19,6 @@ import { UiModule } from './ui-module';
         const uri = configService.get('DB_URI');
         return {
           uri,
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
         };
       },
     }),
