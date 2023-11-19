@@ -2,7 +2,7 @@
   "author": "Artem Ganev",
   "license": "GPL-3.0",
   "name": "artemganev-be",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "homepage": "https://artemganev.site",
   "repository": {
     "type": "git",
@@ -22,6 +22,9 @@
     "client:dev": "next dev",
     "client:start": "next start",
     "depcheck": "pnpm dlx depcheck",
+    "lint": "eslint 'src/**/*.{tsx,ts}' --quiet --max-warnings 1",
+    "lint:fix": "eslint 'src/**/*.{tsx,ts}' --fix ",
+    "lint:warn": "eslint 'src/**/*.{tsx,ts}'",
     "postinstall": "pnpm build",
     "prebuild": "rimraf dist",
     "precommit": "lint-staged",
@@ -122,8 +125,8 @@
     "src/**/*.{scss,css,json,yml,html}": [
       "prettier --write"
     ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+    "*.{js,ts,tsx}": [
+      "eslint --fix --quiet --max-warnings 1",
       "prettier --write"
     ]
   }
