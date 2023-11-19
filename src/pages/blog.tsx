@@ -1,7 +1,8 @@
-import { FC, ReactElement } from 'react';
+import type { JSX } from 'react';
+
 import BlogList from 'src/client/features/blog/components/BlogList';
 
-const Blogs: FC = (): ReactElement => {
+const Blogs = (): JSX.Element => {
   return (
     <div>
       <h1>Blog</h1>

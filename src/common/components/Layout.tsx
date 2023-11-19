@@ -1,5 +1,7 @@
+import type { PropsWithChildren, ReactElement } from 'react';
+
 import Link from 'next/link';
-import { PropsWithChildren, ReactElement } from 'react';
+
 import styles from './Layout.module.scss';
 
 export const rightsText = `© ${new Date().getFullYear()} All rights reserved`;

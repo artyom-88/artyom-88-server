@@ -1,7 +1,8 @@
-import Link from 'next/link';
-import { FC } from 'react';
+import type { JSX } from 'react';
 
-const Home: FC = () => {
+import Link from 'next/link';
+
+const Home = (): JSX.Element => {
   return (
     <div className='ag-flexbox ag-flexColumn'>
       <h1>Site structure</h1>

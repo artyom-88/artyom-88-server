@@ -1,21 +1,15 @@
-import apiClient from 'src/client/app/api.client';
+import httpClient from 'src/client/app/http-client';
 
 export const auth = async (username, password) =>
-  apiClient.post(
-    `auth`,
-    {
+  httpClient.post(`auth`, {
+    json: {
       username,
       password,
     },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+  });
 
 export const user = async (accessToken) =>
-  apiClient.get('user', {
+  httpClient.get('user', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

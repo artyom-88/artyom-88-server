@@ -1,44 +1,33 @@
+import type { JSX } from 'react';
+import { useCallback } from 'react';
+
+import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
-import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import useToggleValue from 'src/common/hooks/useToggleValue';
-import { IBlog } from 'src/common/types/blog.types';
-import { TEntity } from 'src/common/types/common.types';
-import { blogListRequest } from '../blog.api';
-import { blogListState } from '../blog.atoms';
+import type { IBlog } from 'src/common/types/blog.types';
+import type { TEntity } from 'src/common/types/common.types';
 
-const BlogList: FC = (): ReactElement => {
-  const [blogList, setBlogList] = useRecoilState<TEntity<IBlog>[]>(blogListState);
-  const [error, setError] = useState<string>('');
-  const [loading, toggleLoading] = useToggleValue();
+import { blogListRequest } from '../blog-api';
+import { BLOG_LIST_QUERY_KEY } from '../blog-constants';
 
-  const loadBlogList = useCallback(() => {
-    toggleLoading();
-    blogListRequest()
-      .then((response) => {
-        setBlogList(response);
-        toggleLoading();
-      })
-      .catch((e: Error) => {
-        setError(e.message);
-        toggleLoading();
-      });
-  }, [setBlogList, setError, toggleLoading]);
-
-  useEffect(() => {
-    loadBlogList();
-    return () => {
-      setBlogList([]);
-    };
-  }, [loadBlogList, setBlogList]);
-
+const BlogList = (): JSX.Element => {
+  const {
+    data: blogList = [],
+    error,
+    isLoading,
+    refetch,
+  } = useQuery<TEntity<IBlog>[]>({
+    queryFn: blogListRequest,
+    queryKey: [BLOG_LIST_QUERY_KEY],
+    refetchOnMount: false,
+  });
+  const handleRefresh = useCallback(() => refetch(), [refetch]);
   return (
     <div className='ag-flexbox ag-flexColumn'>
       <div className='ag-flexbox ag-alignItems_center ag-justifyContent_end'>
-        <button onClick={loadBlogList}>Refresh</button>
+        <button onClick={handleRefresh}>Refresh</button>
       </div>
       {error && <div>Failed to load</div>}
-      {loading ? (
+      {isLoading ? (
         <div>Loading...</div>
       ) : (
         blogList.map(({ _id, date, title, link, linkCaption }) => (

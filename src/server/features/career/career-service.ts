@@ -1,7 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { CreateCareerDto } from './dto/create-career.dto';
+import type { Model } from 'mongoose';
+
+import type { CreateCareerDto } from './dto/create-career.dto';
 import { Career } from './entities/career.entity';
 
 @Injectable()

@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { JSX } from 'react';
 
-const Career: FC = () => {
+const Career = (): JSX.Element => {
   return <h1>Career</h1>;
 };
 
