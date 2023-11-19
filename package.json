@@ -88,7 +88,7 @@
     "moment": "^2.29.4",
     "mongoose": "^6.10.3",
     "nest-next": "^10.1.0",
-    "next": "^12.1.5",
+    "next": "^14.0.3",
     "node-sass": "^9.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
