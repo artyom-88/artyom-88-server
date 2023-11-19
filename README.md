@@ -9,7 +9,6 @@ This project contains sources of BE app for [artemganev.site](https://artemagenv
 - [ESLint](https://eslint.org)
 - [Heroku](https://www.heroku.com)
 - [Jest](https://jestjs.io/)
-- [Moment.js](https://momentjs.com)
 - [Mongo DB](https://www.mongodb.com)
 - [NestJS](https://nestjs.com)
 - [Next.js](https://nextjs.org)
