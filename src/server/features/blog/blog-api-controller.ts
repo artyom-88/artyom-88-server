@@ -1,30 +1,35 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 
-import type { CreateBlogDto } from './blog-models';
-import type { Blog } from './blog-schema';
+import { CreateBlogDTO, UpdateBlogDTO } from './blog-models';
+import { Blog } from './blog-schema';
 import { BlogService } from './blog-service';
 
-@Controller()
+@Controller('api/blog')
 export class BlogApiController {
   constructor(private readonly blogService: BlogService) {}
 
-  @Post('api/blog')
-  async create(@Body() dto: CreateBlogDto): Promise<Blog> {
-    return await this.blogService.create(dto);
+  @Get()
+  findAll(): Promise<Blog[]> {
+    return this.blogService.findAll();
   }
 
-  @Put('api/blog/:id')
-  async update(@Param('id') id: string, @Body() dto: CreateBlogDto): Promise<Blog> {
-    return await this.blogService.update(id, dto);
+  @Get(':id')
+  findOne(@Param('id') prodId: string): Promise<Blog> {
+    return this.blogService.findOne(prodId);
   }
 
-  @Get('api/blog')
-  async getAll(): Promise<Blog[]> {
-    return await this.blogService.getAll();
+  @Post()
+  create(@Body() dto: CreateBlogDTO): Promise<Blog> {
+    return this.blogService.create(dto);
   }
 
-  @Get('api/blog/:id')
-  getById(@Param('id') prodId: string): Promise<Blog> {
-    return this.blogService.getById(prodId);
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() dto: UpdateBlogDTO): Promise<Blog> {
+    return this.blogService.update(id, dto);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string): Promise<Blog> {
+    return this.blogService.delete(id);
   }
 }

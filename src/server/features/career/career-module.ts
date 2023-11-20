@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
+import { CareerApiController } from './career-api-controller';
 import { CareerController } from './career-controller';
+import { Career, CareerSchema } from './career-schema';
 import { CareerService } from './career-service';
-import { Career, CareerSchema } from './entities/career.entity';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { Career, CareerSchema } from './entities/career.entity';
       },
     ]),
   ],
-  controllers: [CareerController],
+  controllers: [CareerApiController, CareerController],
   providers: [CareerService],
 })
 export class CareerModule {}

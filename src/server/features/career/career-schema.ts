@@ -1,8 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { CareerModel } from 'src/common/types/common-career-types';
 
 @Schema()
-export class Career extends Document {
+export class Career extends Document<string> implements CareerModel {
   @Prop({ required: true, type: String })
   readonly title: string;
 
@@ -22,7 +23,7 @@ export class Career extends Document {
   readonly startDate: Date;
 
   @Prop({ type: Date })
-  readonly endDate: Date;
+  readonly endDate?: Date;
 }
 
 export const CareerSchema = SchemaFactory.createForClass(Career);

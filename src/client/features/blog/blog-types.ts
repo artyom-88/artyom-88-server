@@ -1,5 +1,5 @@
-import { IBlog } from 'src/common/types/common-blog-types';
+import { BlogModel } from 'src/common/types/common-blog-types';
 
 export interface BlogListItemProps {
-  item: IBlog;
+  item: BlogModel;
 }
