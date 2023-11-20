@@ -1,16 +1,20 @@
 import httpClient from 'src/client/app/http-client';
 
-export const auth = async (username, password) =>
-  httpClient.post(`auth`, {
-    json: {
-      username,
-      password,
-    },
-  });
+export const loginApi = (username: string, password: string): Promise<{ authToken: string }> =>
+  httpClient
+    .post('auth/login', {
+      json: {
+        username,
+        password,
+      },
+    })
+    .json();
 
-export const user = async (accessToken) =>
-  httpClient.get('user', {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+export const checkAuthTokenApi = (token: string): Promise<Promise<Record<string, unknown>>> =>
+  httpClient
+    .get('auth/check-token', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .json();

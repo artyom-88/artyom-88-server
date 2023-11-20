@@ -69,6 +69,10 @@ h3 {
   width: 100vw;
 }
 
+.ag-textAlign-center {
+  text-align: center;
+}
+
 ::-webkit-scrollbar {
   position: relative;
   width: 15px;
@@ -77,12 +81,12 @@ h3 {
 
 ::-webkit-scrollbar-thumb {
   background-clip: content-box;
-  background-color: #c7c7c7;
+  background-color: $purpleColor;
   border-radius: 8px;
   border: 4px solid transparent;
 
   &:hover,
   &:active {
-    background-color: #767676;
+    background-color: $darkBlueColor;
   }
 }

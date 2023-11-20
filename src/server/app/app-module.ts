@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from 'src/server/features/auth/auth.module';
+import { AuthModule } from 'src/server/features/auth/auth-module';
 import { BlogModule } from 'src/server/features/blog/blog-module';
 import { CareerModule } from 'src/server/features/career/career-module';
 

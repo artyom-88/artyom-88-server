@@ -1,0 +1,14 @@
+@import 'src/assets/variables';
+
+.form {
+  padding: $padding-md;
+
+  &Item {
+    padding: $padding-sm 0;
+    text-align: center;
+  }
+}
+
+.error {
+  color: red;
+}

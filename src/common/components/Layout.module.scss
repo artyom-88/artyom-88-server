@@ -2,7 +2,9 @@
 
 .header {
   height: $headerHeight;
+  left: $padding-lg;
   position: fixed;
+  right: $padding-lg;
 }
 
 .main {
