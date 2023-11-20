@@ -19,8 +19,8 @@
   "scripts": {
     "build": "pnpm client:build && pnpm server:build",
     "client:build": "next build",
-    "client:dev": "next dev",
-    "client:start": "next start",
+    "client:dev": "next dev --port 8080",
+    "client:start": "next start --port 8080",
     "depcheck": "pnpm dlx depcheck",
     "lint": "eslint 'src/**/*.{tsx,ts}' --quiet --max-warnings 1",
     "lint:fix": "eslint 'src/**/*.{tsx,ts}' --fix ",
@@ -38,6 +38,7 @@
     "update": "pnpm dlx npm-check -u -E -s"
   },
   "dependencies": {
+    "@mui/base": "^5.0.0-beta.24",
     "@nestjs/class-transformer": "^0.4.0",
     "@nestjs/class-validator": "^0.13.4",
     "@nestjs/cli": "^10.2.1",
@@ -54,6 +55,7 @@
     "@nestjs/testing": "^10.2.9",
     "@tanstack/eslint-plugin-query": "^5.8.4",
     "@tanstack/react-query": "^5.8.4",
+    "dayjs": "^1.11.10",
     "debounce": "^2.0.0",
     "express": "^4.18.2",
     "ky-universal": "^0.12.0",

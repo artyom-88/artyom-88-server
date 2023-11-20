@@ -1,5 +1,4 @@
-$darkBlueColor: #343648;
-$purpleColor: #70719b;
+@import 'colors';
 
 a {
   color: $purpleColor;
@@ -20,6 +19,10 @@ body {
   font-family: sans-serif;
   height: 100vh;
   width: 100vw;
+}
+
+button {
+  cursor: pointer;
 }
 
 h1,
@@ -49,6 +52,10 @@ h3 {
   justify-content: center;
 }
 
+.ag-justifyContent-between {
+  justify-content: space-between;
+}
+
 .ag-justifyContent_end {
   justify-content: flex-end;
 }
@@ -59,4 +66,22 @@ h3 {
 
 .ag-fullWidth {
   width: 100vw;
+}
+
+::-webkit-scrollbar {
+  position: relative;
+  width: 15px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  background-color: #c7c7c7;
+  border-radius: 8px;
+  border: 4px solid transparent;
+
+  &:hover,
+  &:active {
+    background-color: #767676;
+  }
 }

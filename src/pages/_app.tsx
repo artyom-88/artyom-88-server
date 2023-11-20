@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }) {
         <Head>
           <title>{pageProps.title}</title>
           <meta name='build version' content={packageJson.version} />
+          <meta name='viewport' content='initial-scale=1, width=device-width' />
           <link rel='shortcut icon' href={favicon.src} type='image/x-icon' />
         </Head>
         <Layout>

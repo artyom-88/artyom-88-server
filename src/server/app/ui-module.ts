@@ -1,7 +1,7 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
-import { isDev } from 'src/common/constants/common.constants';
+import { isDev } from 'src/common/common-constants';
 
 @Module({})
 export class UiModule {
