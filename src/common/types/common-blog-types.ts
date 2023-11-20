@@ -1,15 +1,15 @@
-import { IBaseEntity } from './common-types';
+import { BaseEntity } from './common-types';
 
-export interface IBlogBase extends IBaseEntity {
+export interface BlogModelBase extends BaseEntity {
   link: string;
   linkCaption: string;
   title: string;
 }
 
-export interface IBlogDTO extends IBlogBase {
+export interface BlogDTO extends BlogModelBase {
   date: string;
 }
 
-export interface IBlog extends IBlogBase {
+export interface BlogModel extends BlogModelBase {
   date: Date;
 }

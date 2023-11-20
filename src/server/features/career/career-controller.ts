@@ -1,25 +1,20 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Get, Render, UseInterceptors } from '@nestjs/common';
+import { CAREER_PAGE_ID, CAREER_PAGE_URL } from 'src/common/common-constants';
+import { ParamsInterceptor } from 'src/server/common/params/params-interceptor';
 
-import { CareerService } from './career-service';
-import type { CreateCareerDto } from './dto/create-career.dto';
-import type { Career } from './entities/career.entity';
-
-@Controller('api/career')
+@Controller()
 export class CareerController {
-  constructor(private readonly careerService: CareerService) {}
-
-  @Post()
-  async create(@Body() dto: CreateCareerDto): Promise<Career> {
-    return await this.careerService.create(dto);
+  @Get(CAREER_PAGE_URL)
+  @Render(CAREER_PAGE_ID)
+  @UseInterceptors(ParamsInterceptor)
+  careerList() {
+    return {};
   }
 
-  @Get()
-  async getAll(): Promise<Career[]> {
-    return await this.careerService.getAll();
-  }
-
-  @Get(':id')
-  getById(@Param('id') prodId: string): Promise<Career> {
-    return this.careerService.getById(prodId);
+  @Get('/career/:id')
+  @Render('career/[id]')
+  @UseInterceptors(ParamsInterceptor)
+  careerItem() {
+    return {};
   }
 }

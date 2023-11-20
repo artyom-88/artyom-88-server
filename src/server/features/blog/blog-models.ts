@@ -1,8 +1,8 @@
-import { IsString } from '@nestjs/class-validator';
+import { IsDate, IsString } from '@nestjs/class-validator';
 import { PartialType } from '@nestjs/mapped-types';
-import type { IBlogDTO } from 'src/common/types/common-blog-types';
+import { BlogModel } from 'src/common/types/common-blog-types';
 
-export class CreateBlogDto implements IBlogDTO {
+export class CreateBlogDTO implements BlogModel {
   @IsString()
   readonly title: string;
 
@@ -12,11 +12,8 @@ export class CreateBlogDto implements IBlogDTO {
   @IsString()
   readonly linkCaption: string;
 
-  // @IsDate()
-  // readonly date: Date;
-  // TODO: temporary solution before dates migration
-  @IsString()
-  readonly date: string;
+  @IsDate()
+  readonly date: Date;
 }
 
-export class UpdateBlogDto extends PartialType(CreateBlogDto) {}
+export class UpdateBlogDTO extends PartialType(CreateBlogDTO) {}

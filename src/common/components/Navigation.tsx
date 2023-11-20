@@ -1,25 +1,23 @@
 import type { ReactElement } from 'react';
 
 import Link from 'next/link';
+import { BLOG_PAGE_URL, CAREER_PAGE_URL } from 'src/common/common-constants';
 
+import ApiLink from './ApiLink';
 import styles from './Navigation.module.scss';
 
 const Navigation = (): ReactElement => (
   <nav className={`ag-flexbox ag-fullWidth ag-alignItems_center ag-justifyContent_center ${styles.nav}`}>
-    <Link href='/'>
-      <a className={styles.navLink}>Home</a>
-    </Link>
-    <Link href='/blog'>
-      <a className={styles.navLink}>Blog</a>
-    </Link>
-    <Link href='/career'>
-      <a className={styles.navLink}>Career</a>
-    </Link>
-    <Link href='/api'>
-      <a className={styles.navLink} target='_blank' rel='noopener noreferrer'>
-        API
-      </a>
-    </Link>
+    <span className={styles.navLink}>
+      <Link href='/'>Home</Link>
+    </span>
+    <span className={styles.navLink}>
+      <Link href={BLOG_PAGE_URL}>Blog</Link>
+    </span>
+    <span className={styles.navLink}>
+      <Link href={CAREER_PAGE_URL}>Career</Link>
+    </span>
+    <ApiLink className={styles.navLink}>API</ApiLink>
   </nav>
 );
 
