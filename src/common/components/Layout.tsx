@@ -1,31 +1,19 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 
-import Link from 'next/link';
-
 import styles from './Layout.module.scss';
+import Navigation from './Navigation';
 
 export const rightsText = `© ${new Date().getFullYear()} All rights reserved`;
 
 const Layout = ({ children }: PropsWithChildren<unknown>): ReactElement => (
-  <div className='ag-fullHeight ag-fullWidth'>
-    <nav className={`ag-flexbox ag-fullWidth ag-alignItems_center ag-justifyContent_center ${styles.nav}`}>
-      <Link href='/'>
-        <a className={styles.navLink}>Main</a>
-      </Link>
-      <Link href='/blog'>
-        <a className={styles.navLink}>Blog</a>
-      </Link>
-      <Link href='/career'>
-        <a className={styles.navLink}>Career</a>
-      </Link>
-      <Link href='/api'>
-        <a className={styles.navLink} target='_blank' rel='noopener noreferrer'>
-          API
-        </a>
-      </Link>
-    </nav>
-    <main className={styles.main}>{children}</main>
-    <footer className={`ag-fullWidth ${styles.footer}`}>{rightsText}</footer>
+  <div>
+    <header className={styles.header}>
+      <Navigation />
+    </header>
+    <main className={styles.main}>
+      <div className={`ag-flexbox ag-flexColumn ${styles.mainContent}`}>{children}</div>
+    </main>
+    <footer className={styles.footer}>{rightsText}</footer>
   </div>
 );
 

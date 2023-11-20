@@ -2,7 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { PORT } from 'src/common/constants/common.constants';
+import { PORT } from 'src/common/common-constants';
 import { LoggingInterceptor } from 'src/server/app/logging-interceptor';
 
 import { AppModule } from './app/app-module';

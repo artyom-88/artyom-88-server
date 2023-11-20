@@ -1,6 +1,6 @@
 import { IsString } from '@nestjs/class-validator';
 import { PartialType } from '@nestjs/mapped-types';
-import type { IBlogDTO } from 'src/common/types/blog.types';
+import type { IBlogDTO } from 'src/common/types/common-blog-types';
 
 export class CreateBlogDto implements IBlogDTO {
   @IsString()

@@ -1,25 +1,28 @@
-$navHeight: 5vh;
-$footerHeight: 2vh;
-$smallPadding: 1em;
+@import 'src/assets/variables';
 
-.nav {
+.header {
+  height: $headerHeight;
   position: fixed;
-  height: $navHeight;
-  &Link {
-    padding: $smallPadding;
-  }
 }
 
 .main {
-  height: calc(100vh - #{$navHeight} - #{$footerHeight});
-  overflow-y: auto;
-  padding-top: $navHeight;
-  padding-right: $smallPadding;
-  padding-left: $smallPadding;
+  bottom: $footerHeight;
+  left: $padding-lg;
+  padding: $padding-sm 0;
+  position: fixed;
+  right: $padding-lg;
+  top: $headerHeight;
+
+  &Content {
+    overflow-y: auto;
+  }
 }
 
 .footer {
+  bottom: 0;
   height: $footerHeight;
+  left: 0;
   position: fixed;
+  right: 0;
   text-align: center;
 }

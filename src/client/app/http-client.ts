@@ -1,12 +1,12 @@
 import type { KyInstance } from 'ky-universal';
 import ky from 'ky-universal';
-import { isServer, PORT } from 'src/common/constants/common.constants';
+import { PORT } from 'src/common/common-constants';
 
 export const httpClient: KyInstance = ky.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  prefixUrl: isServer ? `http://localhost:${PORT}/api` : '/api',
+  prefixUrl: `http://localhost:${PORT}/api`,
   retry: 0,
 });
 

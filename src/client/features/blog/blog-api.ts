@@ -1,19 +1,18 @@
 import httpClient from 'src/client/app/http-client';
-import type { IBlog, IBlogDTO } from 'src/common/types/blog.types';
-import type { TEntity } from 'src/common/types/common.types';
+import type { IBlog, IBlogDTO } from 'src/common/types/common-blog-types';
 
-export const blogListRequest = async (): Promise<TEntity<IBlog>[]> => {
-  const data = await httpClient.get('blog').json<TEntity<IBlogDTO>[]>();
-  return data.map((item) => ({
+export const blogListRequest = async (): Promise<IBlog[]> => {
+  const blogListDTO = await httpClient.get('blog').json<IBlogDTO[]>();
+  return blogListDTO.map((item) => ({
     ...item,
     date: new Date(item.date),
   }));
 };
 
-export const blogRequest = async (id: string): Promise<TEntity<IBlog>> => {
-  const data = await httpClient.get(`blog/${id}`).json<TEntity<IBlogDTO>>();
+export const blogRequest = async (id: string): Promise<IBlog> => {
+  const blogDTO = await httpClient.get(`blog/${id}`).json<IBlogDTO>();
   return {
-    ...data,
-    date: new Date(data.date),
+    ...blogDTO,
+    date: new Date(blogDTO.date),
   };
 };
