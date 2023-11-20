@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ParamsModule } from 'src/server/common/params/params-module';
+import { AuthModule } from 'src/server/features/auth/auth-module';
 
 import { BlogApiController } from './blog-api-controller';
 import { BlogController } from './blog-controller';
@@ -15,6 +16,7 @@ import { BlogService } from './blog-service';
         schema: BlogSchema,
       },
     ]),
+    AuthModule,
     ParamsModule,
   ],
   controllers: [BlogApiController, BlogController],
