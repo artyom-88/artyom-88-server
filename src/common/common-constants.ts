@@ -6,8 +6,7 @@ export const PROTOCOL = (isServer ? global.location?.protocol : window.location?
 export const HOST = (isServer ? global.location?.hostname : window.location?.hostname) ?? 'localhost';
 export const PORT = process.env.PORT || 3000;
 // protocol comes with ":" on client side
-export const API_URL =
-  process.env.API_URL ?? (isServer ? `${PROTOCOL}://${HOST}:${PORT}/api` : `${PROTOCOL}//${HOST}:${PORT}/api`);
+export const API_URL = process.env.API_URL ?? `${PROTOCOL}://${HOST}:${PORT}/api`;
 // routes
 export const BLOG_PAGE_ID = 'blog';
 export const BLOG_PAGE_URL = `/${BLOG_PAGE_ID}`;
