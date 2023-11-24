@@ -1,1 +1,1 @@
-web: pnpm server:start:prod
+web: pnpm server:start:dev
