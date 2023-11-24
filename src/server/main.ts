@@ -11,7 +11,8 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors({
     origin: [
-      /https:\/\/artemganev.site*/,
+      /https:\/\/artemganev-be-*.herokuapp.com*/,
+      /https:\/\/artyom-88.github.io*/,
       /https:\/\/artyom-ganev-node-test.herokuapp.com*/,
       /https?:\/\/localhost:[\d]{4}/,
     ],
