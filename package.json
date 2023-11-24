@@ -17,7 +17,7 @@
     ".next/cache"
   ],
   "scripts": {
-    "build": "GENERATE_SOURCEMAP=true NODE_ENV=development pnpm client:build && pnpm server:build",
+    "build": "GENERATE_SOURCEMAP=true pnpm client:build && pnpm server:build",
     "client:build": "next build",
     "client:dev": "next dev --port 8080",
     "client:start": "next start --port 8080",
