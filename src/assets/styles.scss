@@ -1,0 +1,92 @@
+@import 'colors';
+
+a {
+  color: $purpleColor;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $purpleColor;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  color: $darkBlueColor;
+  margin: 0;
+}
+
+.ag-flexbox {
+  display: flex;
+}
+
+.ag-flexColumn {
+  flex-direction: column;
+}
+
+.ag-alignItems_center {
+  align-items: center;
+}
+
+.ag-alignItems_end {
+  align-items: flex-end;
+}
+
+.ag-justifyContent_center {
+  justify-content: center;
+}
+
+.ag-justifyContent-between {
+  justify-content: space-between;
+}
+
+.ag-justifyContent_end {
+  justify-content: flex-end;
+}
+
+.ag-fullHeight {
+  height: 100vh;
+}
+
+.ag-fullWidth {
+  width: 100vw;
+}
+
+.ag-textAlign-center {
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  position: relative;
+  width: 15px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  background-color: $purpleColor;
+  border-radius: 8px;
+  border: 4px solid transparent;
+
+  &:hover,
+  &:active {
+    background-color: $darkBlueColor;
+  }
+}

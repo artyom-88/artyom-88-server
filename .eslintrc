@@ -1,12 +1,20 @@
 {
   "env": {
-    "es6": true,
     "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest/globals": true,
     "mocha": true,
-    "jest/globals": true
+    "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": ["plugin:import/typescript", "plugin:prettier/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
   "root": true,
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,7 +23,15 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "jest", "import", "prettier"],
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "react",
+    "react-hooks",
+    "jest",
+    "import",
+    "prettier",
+    "@tanstack/query"
+  ],
   "settings": {
     "import/extensions": [".ts", ".tsx"],
     "react": {
@@ -24,6 +40,26 @@
     }
   },
   "rules": {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "groups": [["builtin", "external"], ["internal", "unknown", "object"], ["parent"], ["sibling", "index"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"]
+      }
+    ],
+    "no-unused-vars": "off",
     "prettier/prettier": [
       "error",
       {
@@ -33,36 +69,6 @@
         "printWidth": 120,
         "singleQuote": true,
         "trailingComma": "es5"
-      }
-    ],
-    "@typescript-eslint/interface-name-prefix": 0,
-    "@typescript-eslint/no-non-null-assertion": 0,
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "internal", "unknown", "external", "parent", "sibling", "index"],
-        "pathGroups": [
-          {
-            "pattern": "react*",
-            "group": "builtin",
-            "position": "before"
-          },
-          {
-            "pattern": "redux*",
-            "group": "builtin",
-            "position": "before"
-          },
-          {
-            "pattern": "*.scss",
-            "group": "index",
-            "position": "after"
-          }
-        ],
-        "newlines-between": "never",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
       }
     ],
     "react/jsx-uses-react": "off",

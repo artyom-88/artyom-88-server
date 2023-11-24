@@ -1,0 +1,30 @@
+@import 'src/assets/variables';
+
+.header {
+  height: $headerHeight;
+  left: $padding-lg;
+  position: fixed;
+  right: $padding-lg;
+}
+
+.main {
+  bottom: $footerHeight;
+  left: $padding-lg;
+  padding: $padding-sm 0;
+  position: fixed;
+  right: $padding-lg;
+  top: $headerHeight;
+
+  &Content {
+    overflow-y: auto;
+  }
+}
+
+.footer {
+  bottom: 0;
+  height: $footerHeight;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+}

@@ -1,72 +1,135 @@
 {
-  "author": "Artyom Ganev",
+  "author": "Artem Ganev",
   "license": "GPL-3.0",
-  "name": "artyom-ganev-node",
-  "version": "1.0.0",
-  "private": true,
-  "homepage": "http://artyom-ganev.github.io",
-  "bugs": {
-    "url": "https://github.com/Artyom-Ganev/artyom-ganev-node/issues"
-  },
+  "name": "artemganev-be",
+  "version": "2.0.0",
+  "homepage": "https://artemganev.site",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Artyom-Ganev/artyom-ganev-node.git"
+    "url": "git+https://github.com/artyom-88/artemganev-be.git"
   },
   "engines": {
-    "node": "14.x"
+    "node": "18.x",
+    "pnpm": "8.x"
   },
-  "scripts": {
-    "root:audit": "yarn-audit-ci --high",
-    "client:audit": "yarn workspace client client:audit",
-    "client:build": "yarn workspace client build",
-    "client:install": "yarn workspace client install",
-    "client:start": "yarn workspace client start",
-    "postinstall": "yarn client:install && yarn server:install",
-    "pre-commit": "lint-staged",
-    "prepare": "husky install",
-    "server:audit": "yarn workspace server server:audit",
-    "server:build": "yarn workspace server build",
-    "server:install": "yarn workspace server install",
-    "server:prod": "yarn workspace server start:prod",
-    "server:start": "yarn workspace server start",
-    "server:start:dev": "yarn workspace server start:dev",
-    "server:test": "yarn workspace server test",
-    "test": "yarn server:test"
-  },
-  "workspaces": [
-    "client",
-    "server"
+  "cacheDirectories": [
+    "node_modules",
+    ".next/cache"
   ],
-  "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "@types/node": "^17.0.19",
-    "@typescript-eslint/parser": "5.12.0",
-    "eslint": "8.9.0",
-    "eslint-config-prettier": "8.4.0",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jest": "26.1.1",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-react": "7.28.0",
-    "eslint-plugin-react-hooks": "4.3.0",
-    "husky": "7.0.4",
-    "jest": "^27.4.3",
-    "lint-staged": "12.3.4",
-    "prettier": "2.5.1",
-    "rimraf": "3.0.2",
-    "typescript": "4.5.5",
-    "yarn-audit-ci": "1.2.0",
-    "webpack": "5.66.0"
+  "scripts": {
+    "build": "pnpm client:build && pnpm server:build",
+    "client:build": "next build",
+    "client:dev": "next dev --port 8080",
+    "client:start": "next start --port 8080",
+    "depcheck": "pnpm dlx depcheck",
+    "lint": "eslint 'src/**/*.{tsx,ts}' --quiet --max-warnings 1",
+    "lint:fix": "eslint 'src/**/*.{tsx,ts}' --fix ",
+    "lint:warn": "eslint 'src/**/*.{tsx,ts}'",
+    "postinstall": "pnpm build",
+    "prebuild": "rimraf dist",
+    "precommit": "lint-staged",
+    "prepare": "husky install",
+    "server:build": "nest build --path ./tsconfig.server.json",
+    "server:start": "NODE_ENV=development nest start --path ./tsconfig.server.json",
+    "server:start:debug": "NODE_ENV=development nest start --path ./tsconfig.server.json --debug --watch",
+    "server:start:dev": "NODE_ENV=development nest start --path ./tsconfig.server.json --watch",
+    "server:start:prod": "node dist/server/main.js",
+    "test": "echo 'Tests are not implemented yet'",
+    "update": "pnpm dlx npm-check -u -E -s"
   },
-  "resolutions": {
-    "webpack": "5.66.0",
-    "nth-check": ">=2.0.1"
+  "dependencies": {
+    "@mui/base": "^5.0.0-beta.24",
+    "@nestjs/class-transformer": "^0.4.0",
+    "@nestjs/class-validator": "^0.13.4",
+    "@nestjs/cli": "^10.2.1",
+    "@nestjs/common": "^10.2.9",
+    "@nestjs/config": "^3.1.1",
+    "@nestjs/core": "^10.2.9",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mapped-types": "^2.0.4",
+    "@nestjs/mongoose": "^10.0.2",
+    "@nestjs/passport": "^10.0.2",
+    "@nestjs/platform-express": "^10.2.9",
+    "@nestjs/schematics": "^10.0.3",
+    "@nestjs/swagger": "^7.1.16",
+    "@nestjs/testing": "^10.2.9",
+    "@tanstack/react-query": "^5.8.4",
+    "dayjs": "^1.11.10",
+    "debounce": "^2.0.0",
+    "express": "^4.18.2",
+    "ky-universal": "^0.12.0",
+    "lint-staged": "^15.1.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.0.1",
+    "nest-next": "^10.1.0",
+    "next": "^12.1.5",
+    "node-sass": "^9.0.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "react": "^18.2.0",
+    "react-datepicker": "^4.7.0",
+    "react-dom": "^18.2.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^5.0.5",
+    "rxjs": "^7.5.4",
+    "sass": "^1.69.5",
+    "swagger-ui-express": "^5.0.0",
+    "ts-jest": "^29.1.1",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "zustand": "4.4.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/plugin-syntax-flow": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@tanstack/eslint-plugin-query": "^5.8.4",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.8",
+    "@types/lodash": "^4.14.201",
+    "@types/node": "^18.18.10",
+    "@types/passport": "^1.0.15",
+    "@types/passport-jwt": "^3.0.13",
+    "@types/passport-local": "^1.0.38",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/supertest": "^2.0.16",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "supertest": "^6.3.3",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@babel/traverse": ">=7.23.2",
+      "lodash": "$lodash",
+      "node-sass": "$node-sass",
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   },
   "lint-staged": {
     "src/**/*.{scss,css,json,yml,html}": [
       "prettier --write"
     ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+    "*.{js,ts,tsx}": [
+      "eslint --fix --quiet --max-warnings 1",
       "prettier --write"
     ]
   }
