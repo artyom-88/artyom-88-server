@@ -41,7 +41,7 @@ dependencies:
     version: 2.0.4(@nestjs/common@10.2.9)(reflect-metadata@0.1.13)
   '@nestjs/mongoose':
     specifier: ^10.0.2
-    version: 10.0.2(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(mongoose@8.0.1)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+    version: 10.0.2(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(mongoose@8.0.2)(reflect-metadata@0.1.13)(rxjs@7.8.1)
   '@nestjs/passport':
     specifier: ^10.0.2
     version: 10.0.2(@nestjs/common@10.2.9)(passport@0.6.0)
@@ -80,7 +80,7 @@ dependencies:
     version: 4.17.21
   mongoose:
     specifier: ^8.0.1
-    version: 8.0.1
+    version: 8.0.2
   nest-next:
     specifier: ^10.1.0
     version: 10.1.0(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(next@12.3.4)
@@ -1219,7 +1219,7 @@ packages:
       reflect-metadata: 0.1.13
     dev: false
 
-  /@nestjs/mongoose@10.0.2(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(mongoose@8.0.1)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+  /@nestjs/mongoose@10.0.2(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(mongoose@8.0.2)(reflect-metadata@0.1.13)(rxjs@7.8.1):
     resolution: {integrity: sha512-ITHh075DynjPIaKeJh6WkarS21WXYslu4nrLkNPbWaCP6JfxVAOftaA2X5tPSiiE/gNJWgs+QFWsfCFZUUenow==}
     peerDependencies:
       '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
@@ -1230,7 +1230,7 @@ packages:
     dependencies:
       '@nestjs/common': 10.2.9(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core': 10.2.9(@nestjs/common@10.2.9)(@nestjs/platform-express@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      mongoose: 8.0.1
+      mongoose: 8.0.2
       reflect-metadata: 0.1.13
       rxjs: 7.8.1
     dev: false
@@ -5934,8 +5934,8 @@ packages:
       mongodb-connection-string-url: 2.6.0
     dev: false
 
-  /mongoose@8.0.1:
-    resolution: {integrity: sha512-O3TJrtLCt4H1eGf2HoHGcnOcCTWloQkpmIP3hA9olybX3OX2KUjdIIq135HD5paGjZEDJYKn9fw4eH5N477zqQ==}
+  /mongoose@8.0.2:
+    resolution: {integrity: sha512-Vsi9GzTXjdBVzheT1HZOZ2jHNzzR9Xwb5OyLz/FvDEAhlwrRnXnuqJf0QHINUOQSm7aoyvnPks0q85HJkd6yDw==}
     engines: {node: '>=16.20.1'}
     dependencies:
       bson: 6.2.0
