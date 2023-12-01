@@ -151,7 +151,7 @@ devDependencies:
     version: 7.22.15(@babel/core@7.23.3)
   '@tanstack/eslint-plugin-query':
     specifier: ^5.8.4
-    version: 5.8.4(eslint@8.54.0)(typescript@5.2.2)
+    version: 5.10.0(eslint@8.54.0)(typescript@5.2.2)
   '@types/express':
     specifier: ^4.17.21
     version: 4.17.21
@@ -1552,8 +1552,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tanstack/eslint-plugin-query@5.8.4(eslint@8.54.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-KVgcMc+Bn1qbwkxYVWQoiVSNEIN4IAiLj3cUH/SAHT8m8E59Y97o8ON1syp0Rcw094ItG8pEVZFyQuOaH6PDgQ==}
+  /@tanstack/eslint-plugin-query@5.10.0(eslint@8.54.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-gbvdw5qGfk3/eNUPKq+akR/JUqI6rfEILulUWx2utiMHXmPSRmExCbK7YLGy9yrfK4Mi5njT7UshVX3awlrQbw==}
     peerDependencies:
       eslint: ^8.0.0
     dependencies:
