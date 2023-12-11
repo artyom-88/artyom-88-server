@@ -60,7 +60,7 @@
     "ky-universal": "^0.12.0",
     "lint-staged": "^15.2.0",
     "lodash": "^4.17.21",
-    "mongoose": "^6.12.3",
+    "mongoose": "^8.0.3",
     "nest-next": "^10.1.0",
     "next": "^12.1.5",
     "node-sass": "^9.0.0",
