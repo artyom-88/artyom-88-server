@@ -1,0 +1,21 @@
+@import 'src/assets/colors';
+@import 'src/assets/variables';
+
+.modal {
+  background-color: $darkBlueColor;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: $padding-lg;
+}
+
+.content {
+  background-color: white;
+  border-radius: $border;
+  border: $border $purpleColor solid;
+  padding: $padding-md;
+  position: relative;
+}

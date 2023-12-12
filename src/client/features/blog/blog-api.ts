@@ -1,4 +1,4 @@
-import httpClient from 'src/client/app/http-client';
+import { httpClient } from 'src/client/app/http-client';
 import type { BlogDTO, BlogModel } from 'src/common/types/common-blog-types';
 
 const blogItemAdapter = (dto: BlogDTO): BlogModel => ({
