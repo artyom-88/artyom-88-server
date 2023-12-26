@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import { useCallback } from 'react';
 import DatePicker from 'react-datepicker';
 
-import { Button } from '@mui/base/Button';
+import { Button } from '@nextui-org/react';
 import { useMutation } from '@tanstack/react-query';
 import { Field, Form, Formik } from 'formik';
 import CommonModal from 'src/common/components/CommonModal';
@@ -32,9 +32,9 @@ const CareerModal = (): JSX.Element => {
   );
 
   return (
-    <CommonModal isOpen={isOpen} isLoading={isPending} handleClose={handleClose}>
+    <CommonModal header='Add career item' isOpen={isOpen} isLoading={isPending} handleClose={handleClose}>
       <Formik<CareerModel> initialValues={initialValues} onSubmit={onSubmit}>
-        <Form className='ag-flexbox ag-flexColumn ag-fullWidth'>
+        <Form className='flex flex-col w-full'>
           <div className={styles.formItem}>
             <Field type='text' name='title' placeholder='Title' />
           </div>
@@ -54,7 +54,7 @@ const CareerModal = (): JSX.Element => {
             <Field>{({ value, onChange }) => <DatePicker onChange={onChange} selected={value} />}</Field>
           </div>
           {error && error.message}
-          <div className='ag-fullWidth ag-flexbox ag-alignItems_center ag-justifyContent_center'>
+          <div className='w-full flex align-middle justify-center'>
             <Button type='submit'>Submit</Button>
             <span>&nbsp;</span>
             <Button onClick={handleClose}>Cancel</Button>

@@ -22,7 +22,7 @@ const Career = (): JSX.Element => {
   return (
     <>
       <h1>{career.title}</h1>
-      <div className='ag-flexbox'>
+      <div className='flex'>
         <div>{JSON.stringify(career)}</div>
       </div>
     </>
