@@ -1,3 +1,0 @@
-export const BLOG_LIST_QUERY_KEY = 'BLOG_LIST_QUERY_KEY';
-
-export const BLOG_ID_QUERY_KEY = 'BLOG_ID_QUERY_KEY';

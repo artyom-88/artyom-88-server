@@ -12,12 +12,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
@@ -34,14 +29,6 @@
     "target": "ESNext",
     "useDefineForClassFields": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    ".next",
-    "node_modules",
-    "dist"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
