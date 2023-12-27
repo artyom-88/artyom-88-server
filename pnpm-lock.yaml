@@ -51,9 +51,6 @@ dependencies:
   '@nestjs/testing':
     specifier: 10.3.0
     version: 10.3.0(@nestjs/common@10.3.0)(@nestjs/core@10.3.0)(@nestjs/platform-express@10.3.0)
-  dayjs:
-    specifier: 1.11.10
-    version: 1.11.10
   express:
     specifier: 4.18.2
     version: 4.18.2
@@ -3536,10 +3533,6 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
-
-  /dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
-    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
