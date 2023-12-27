@@ -10,14 +10,11 @@
 .main {
   bottom: $footerHeight;
   left: $padding-lg;
+  overflow-y: auto;
   padding: $padding-sm 0;
   position: fixed;
   right: $padding-lg;
   top: $headerHeight;
-
-  &Content {
-    overflow-y: auto;
-  }
 }
 
 .footer {

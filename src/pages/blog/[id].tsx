@@ -22,7 +22,7 @@ const Blog = (): JSX.Element => {
   return (
     <>
       <h1>{blog.title}</h1>
-      <div className='ag-flexbox'>
+      <div className='flex'>
         <div>{blog.date?.getFullYear()}</div>
         <div>{blog.link}</div>
         <div>{blog.linkCaption}</div>

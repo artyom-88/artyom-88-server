@@ -7,8 +7,8 @@ import ApiLink from './ApiLink';
 import styles from './Navigation.module.scss';
 
 const Navigation = (): ReactElement => (
-  <nav className={`ag-flexbox ag-fullWidth ag-alignItems_center ag-justifyContent_between ${styles.nav}`}>
-    <div className='ag-flexbox ag-fullWidth ag-alignItems_center ag-justifyContent_center'>
+  <nav className={`flex w-full align-middle justify-between ${styles.nav}`}>
+    <div className='flex w-full align-middle justify-center'>
       <span className={styles.navLink}>
         <Link href='/'>Home</Link>
       </span>

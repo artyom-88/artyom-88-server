@@ -1,7 +1,7 @@
 'use client';
 import { JSX, useCallback } from 'react';
 
-import { Button } from '@mui/base/Button';
+import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useAuthToken } from 'src/client/features/auth/hooks/use-auth-token';
 import { useAuthorized } from 'src/client/features/auth/hooks/use-authorized';

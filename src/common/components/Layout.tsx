@@ -11,7 +11,7 @@ const Layout = ({ children }: PropsWithChildren<unknown>): ReactElement => (
       <Navigation />
     </header>
     <main className={styles.main}>
-      <div className={`ag-flexbox ag-flexColumn ${styles.mainContent}`}>{children}</div>
+      <div className='h-full w-full'>{children}</div>
     </main>
     <footer className={styles.footer}>{rightsText}</footer>
   </div>

@@ -1,7 +1,6 @@
 import { ChangeEvent, JSX, useCallback, useState } from 'react';
 
-import { Button } from '@mui/base/Button';
-import { Input } from '@mui/base/Input';
+import { Button, Input } from '@nextui-org/react';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { loginApi } from 'src/client/features/auth/auth-api';
@@ -43,7 +42,7 @@ const AuthForm = (): JSX.Element => {
   );
   const handleLogin = useCallback(() => mutate(), [mutate]);
   return (
-    <div className={`ag-flexbox ag-flexColumn ag-flexColumn ag-justifyContent_center ${styles.form}`}>
+    <div className={`flex flex-col justify-center ${styles.form}`}>
       <div className={styles.formItem}>
         <Input placeholder='Login' onChange={handleLoginChange} />
       </div>

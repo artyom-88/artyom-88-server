@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import { Button } from '@mui/base';
+import { Button } from '@nextui-org/react';
 import Link from 'next/link';
 import { CAREER_PAGE_URL } from 'src/common/common-constants';
 import { dayjs } from 'src/common/common-date';
@@ -11,7 +11,7 @@ import styles from './CareerListItem.module.scss';
 const CareerListItem = ({ item }: CareerListItemProps): JSX.Element => {
   const { _id: itemId, endDate, description, post, site, startDate, title, tools } = item;
   return (
-    <div className={`ag-flexbox ag-justifyContent-between ${styles.container}`} key={itemId}>
+    <div className={`flex justify-between ${styles.container}`} key={itemId}>
       <div>{title}</div>
       <div>
         <span>{dayjs(startDate).utc().format('MMMM DD, YYYY')}</span>

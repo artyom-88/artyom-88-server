@@ -7,7 +7,7 @@ import ApiLink from 'src/common/components/ApiLink';
 import styles from './Summary.module.scss';
 
 const Summary = (): JSX.Element => (
-  <ul className='ag-flexbox ag-flexColumn'>
+  <ul className='flex flex-col'>
     <li className={styles.link}>
       <Link href={BLOG_PAGE_URL}>Blog page</Link>
     </li>

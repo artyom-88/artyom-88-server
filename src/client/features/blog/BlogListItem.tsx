@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import { Button } from '@mui/base';
+import { Button } from '@nextui-org/react';
 import Link from 'next/link';
 import { BLOG_PAGE_URL } from 'src/common/common-constants';
 import { dayjs } from 'src/common/common-date';
@@ -11,7 +11,7 @@ import styles from './BlogListItem.module.scss';
 const BlogListItem = ({ item }: BlogListItemProps): JSX.Element => {
   const { _id: itemId, date, title, link, linkCaption } = item;
   return (
-    <div className={`ag-flexbox ag-justifyContent-between ${styles.container}`} key={itemId}>
+    <div className={`flex justify-between ${styles.container}`} key={itemId}>
       <div>{dayjs(date).utc().format('MMMM DD, YYYY')}</div>
       <div>{title}</div>
       <div>{link}</div>

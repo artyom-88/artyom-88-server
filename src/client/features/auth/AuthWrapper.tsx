@@ -1,5 +1,6 @@
 import { JSX, PropsWithChildren } from 'react';
 
+import { Spinner } from '@nextui-org/react';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { LOGIN_PAGE_URL } from 'src/common/common-constants';
@@ -20,11 +21,12 @@ const AuthWrapper = ({ children }: PropsWithChildren): JSX.Element => {
         setToken('');
         void router.replace(LOGIN_PAGE_URL);
       }
+      return {};
     },
     queryKey: [CHECK_AUTH_TOKEN_QUERY_KEY],
     refetchOnMount: false,
   });
-  return <>{isLoading ? 'Loading... ' : children}</>;
+  return <>{isLoading ? <Spinner size='lg' /> : children}</>;
 };
 
 export default AuthWrapper;
