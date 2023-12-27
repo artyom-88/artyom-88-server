@@ -4,9 +4,5 @@
     "noEmit": false,
     "esModuleInterop": true
   },
-  "include": [
-    "./src/server/**/*.ts",
-    "./src/common/**/*.ts",
-    "./@types/**/*.d.ts"
-  ]
+  "include": ["./src/**/*.ts", "./@types/**/*.d.ts"]
 }

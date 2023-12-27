@@ -1,3 +1,5 @@
 ignores: [
-  "swagger-ui-express"
+  "swagger-ui-express",
+  "supertest",
+  "typescript"
 ]
