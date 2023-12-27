@@ -1,6 +1,5 @@
 {
   "env": {
-    "browser": true,
     "commonjs": true,
     "es6": true,
     "jest/globals": true,
@@ -12,32 +11,21 @@
     "eslint:recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:@tanstack/eslint-plugin-query/recommended"
+    "prettier"
   ],
   "root": true,
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint/eslint-plugin",
-    "react",
-    "react-hooks",
     "jest",
     "import",
-    "prettier",
-    "@tanstack/query"
+    "prettier"
   ],
   "settings": {
-    "import/extensions": [".ts", ".tsx"],
-    "react": {
-      "pragma": "React",
-      "version": "detect"
-    }
+    "import/extensions": [".ts"]
   },
   "rules": {
     "@typescript-eslint/interface-name-prefix": "off",
@@ -48,30 +36,18 @@
       {
         "alphabetize": { "order": "asc", "caseInsensitive": true },
         "groups": [["builtin", "external"], ["internal", "unknown", "object"], ["parent"], ["sibling", "index"]],
-        "newlines-between": "always",
-        "pathGroups": [
-          {
-            "pattern": "react*",
-            "group": "builtin",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"]
+        "newlines-between": "always"
       }
     ],
-    "no-unused-vars": "off",
     "prettier/prettier": [
       "error",
       {
         "arrowParens": "always",
         "endOfLine": "lf",
-        "jsxSingleQuote": true,
         "printWidth": 120,
         "singleQuote": true,
         "trailingComma": "es5"
       }
-    ],
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    ]
   }
 }

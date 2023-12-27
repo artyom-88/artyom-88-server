@@ -1,9 +1,13 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 version: 2
 updates:
-  - directory: "/"
+  - directory: '/'
     open-pull-requests-limit: 5
-    package-ecosystem: "npm"
+    package-ecosystem: 'npm'
     schedule:
-      interval: "monthly"
-    versioning-strategy: "increase-if-necessary"
+      interval: 'weekly'
+    versioning-strategy: 'increase-if-necessary'
+  - directory: '/'
+    package-ecosystem: 'github-actions'
+    schedule:
+      interval: 'weekly'
