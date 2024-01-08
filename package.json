@@ -68,7 +68,7 @@
     "@types/lodash": "^4.14.202",
     "@types/node": "^18.18.10",
     "@types/passport": "^1.0.16",
-    "@types/passport-jwt": "^3.0.13",
+    "@types/passport-jwt": "^4.0.0",
     "@types/passport-local": "^1.0.38",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
