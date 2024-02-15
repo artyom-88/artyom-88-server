@@ -31,7 +31,7 @@ export class BlogService {
   }
 
   async delete(id: string): Promise<Blog> {
-    const word = await this.blogModel.findByIdAndRemove(id).exec();
+    const word = await this.blogModel.findOneAndDelete({ _id: id }).exec();
     return this.returnIfExists(id, word);
   }
 
