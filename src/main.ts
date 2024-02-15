@@ -13,6 +13,7 @@ async function bootstrap() {
       /https:\/\/artemganev-be-*.herokuapp.com*/,
       /https:\/\/artyom-88.github.io*/,
       /https:\/\/artyom-88-test-cd1e609bf639.herokuapp.com*/,
+      /https:\/\/artyom-88-dev-55fd70efc97a.herokuapp.com*/,
       /https:\/\/artemganev-admin-410f30539f11.herokuapp.com*/,
       /https?:\/\/localhost:\d{4}/,
     ],
