@@ -10,9 +10,14 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors({
     origin: [
-      /https:\/\/artemganev-be-*.herokuapp.com*/,
-      /https:\/\/artyom-88.github.io*/,
       /https:\/\/artemganev-admin-410f30539f11.herokuapp.com*/,
+      /https:\/\/artemganev-admin-dev-e1852d9ebd09.herokuapp.com*/,
+      /https:\/\/artemganev-admin-test-43d3c009c15d.herokuapp.com*/,
+      /https:\/\/artemganev-be-13b50ea004b5.herokuapp.com*/,
+      /https:\/\/artemganev-be-dev-02da3abc0800.herokuapp.com*/,
+      /https:\/\/artyom-88-dev-55fd70efc97a.herokuapp.com*/,
+      /https:\/\/artyom-88-test-cd1e609bf639.herokuapp.com*/,
+      /https:\/\/artyom-88.github.io*/,
       /https?:\/\/localhost:\d{4}/,
     ],
   });

@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         name: Install NodeJS
         with:
-          node-version: '18'
-      - uses: pnpm/action-setup@v2
+          node-version: '20'
+      - uses: pnpm/action-setup@v3
         name: Install PNPM
         with:
           version: 8
@@ -25,7 +25,7 @@ jobs:
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}

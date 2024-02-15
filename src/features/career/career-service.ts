@@ -31,7 +31,7 @@ export class CareerService {
   }
 
   async delete(id: string): Promise<Career> {
-    const item = await this.careerModel.findByIdAndRemove(id).exec();
+    const item = await this.careerModel.findOneAndDelete({ _id: id }).exec();
     return this.returnIfExists(id, item);
   }
 
