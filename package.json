@@ -45,7 +45,7 @@
     "@nestjs/platform-express": "10.3.3",
     "@nestjs/schematics": "10.1.1",
     "@nestjs/swagger": "7.3.0",
-    "@nestjs/testing": "10.3.3",
+    "@nestjs/testing": "10.3.4",
     "express": "4.18.3",
     "lint-staged": "15.2.2",
     "lodash": "4.17.21",
