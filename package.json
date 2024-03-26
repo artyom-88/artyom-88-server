@@ -1,12 +1,12 @@
 {
   "author": "Artem Ganev",
   "license": "GPL-3.0",
-  "name": "artemganev-be",
+  "name": "artyom-88-server",
   "version": "3.0.0",
   "homepage": "https://artyom-88.github.io",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/artyom-88/artemganev-be.git"
+    "url": "git+https://github.com/artyom-88/artyom-88-server.git"
   },
   "engines": {
     "node": "20.x",
