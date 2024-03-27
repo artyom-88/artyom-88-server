@@ -1,5 +1,3 @@
-[![codebeat badge](https://codebeat.co/badges/7921ca93-8957-45bd-b2e9-ebe9f95bcf7c)](https://codebeat.co/projects/github-com-artyom-88-artemganev-be-develop)
----
 **API for https://artyom-88.github.io site**
 
 
