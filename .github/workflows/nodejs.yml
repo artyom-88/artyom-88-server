@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [22.x]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         name: Install NodeJS
         with:
-          node-version: '20'
+          node-version: '22'
       - uses: pnpm/action-setup@v3
         name: Install PNPM
         with:
-          version: 8
+          version: 9
           run_install: false
       - name: Get pnpm store directory
         shell: bash
