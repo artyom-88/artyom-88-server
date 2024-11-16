@@ -6,6 +6,7 @@ import { BlogModule } from 'src/features/blog/blog-module';
 import { CareerModule } from 'src/features/career/career-module';
 
 import { AppController } from './app-controller';
+import { HealthModule } from './health/health-module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { AppController } from './app-controller';
         };
       },
     }),
+    HealthModule,
     AuthModule,
     BlogModule,
     CareerModule,
