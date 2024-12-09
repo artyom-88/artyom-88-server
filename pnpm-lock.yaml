@@ -88,8 +88,8 @@ importers:
         specifier: 7.8.1
         version: 7.8.1
       swagger-ui-express:
-        specifier: 5.0.0
-        version: 5.0.0(express@4.20.0)
+        specifier: 5.0.1
+        version: 5.0.1(express@4.20.0)
       ts-jest:
         specifier: 29.1.2
         version: 29.1.2(@babel/core@7.23.6)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.23.6))(jest@29.7.0(@types/node@20.11.28)(ts-node@10.9.2(@types/node@20.11.28)(typescript@5.4.5)))(typescript@5.4.5)
@@ -3389,11 +3389,8 @@ packages:
   swagger-ui-dist@5.11.2:
     resolution: {integrity: sha512-jQG0cRgJNMZ7aCoiFofnoojeSaa/+KgWaDlfgs8QN+BXoGMpxeMVY5OEnjq4OlNvF3yjftO8c9GRAgcHlO+u7A==}
 
-  swagger-ui-dist@5.9.1:
-    resolution: {integrity: sha512-5zAx+hUwJb9T3EAntc7TqYkV716CMqG6sZpNlAAMOMWkNXRYxGkN8ADIvD55dQZ10LxN90ZM/TQmN7y1gpICnw==}
-
-  swagger-ui-express@5.0.0:
-    resolution: {integrity: sha512-tsU9tODVvhyfkNSvf03E6FAk+z+5cU3lXAzMy6Pv4av2Gt2xA0++fogwC4qo19XuFf6hdxevPuVCSKFuMHJhFA==}
+  swagger-ui-express@5.0.1:
+    resolution: {integrity: sha512-SrNU3RiBGTLLmFU8GIJdOdanJTl4TOmT27tt3bWWHppqYmAZ6IDuEuBvMU6nZq0zLEe6b/1rACXCgLZqO6ZfrA==}
     engines: {node: '>= v0.10.32'}
     peerDependencies:
       express: '>=4.0.0 || >=5.0.0-beta'
@@ -7602,12 +7599,10 @@ snapshots:
 
   swagger-ui-dist@5.11.2: {}
 
-  swagger-ui-dist@5.9.1: {}
-
-  swagger-ui-express@5.0.0(express@4.20.0):
+  swagger-ui-express@5.0.1(express@4.20.0):
     dependencies:
       express: 4.20.0
-      swagger-ui-dist: 5.9.1
+      swagger-ui-dist: 5.11.2
 
   symbol-observable@4.0.0: {}
 
